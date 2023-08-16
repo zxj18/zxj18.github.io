@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>播放音乐</title>
+</head>
+<body>
+<audio id="music" src="https://apis.jxcxin.cn/api/qqrandommusic" preload="auto" loop></audio>
+<script>
+    var music = document.getElementById('music');
+    window.onload = function () {
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            music.play();
+        }, false);
+        music.play();
+    };
+</script>
+</body>
+</html>

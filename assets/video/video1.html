@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>user action</title>
+  </head>
+  <body>
+    <video id="video" style="width: 640px; height: 480px;" src="https://15799848.s21v.faiusr.com/58/ABUIABA6GAAgn-zL9QUo4L7HJQ.mp4" ></video>
+    <button id="playButton" >play</button>
+    <script>
+      let button = document.getElementById("playButton");
+      let video = document.getElementById("video");
+      button.addEventListener("click", function() {
+        video.play();
+      })
+    </script>
+  </body>
+</html>

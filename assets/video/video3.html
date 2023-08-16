@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>autoplay</title>
+  </head>
+  <body>
+    <video id="video" style="width: 640px; height: 480px;" src="https://15799848.s21v.faiusr.com/58/ABUIABA6GAAgn-zL9QUo4L7HJQ.mp4" ></video>
+    <script>
+      let video = document.getElementById("video");
+      if (navigator && navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({audio: true}).then((mediastream) => {
+          video.play();
+        }).catch((err) => {
+          alert("getUserMedia error");
+          console.log('getUserMedia Error:', err);
+        });
+      } else {
+        alert("not support getUserMedia");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>mute autoplay</title>
+  </head>
+  <body>
+    <video id="video" style="width: 640px; height: 480px;" src="https://15799848.s21v.faiusr.com/58/ABUIABA6GAAgn-zL9QUo4L7HJQ.mp4" muted autoplay ></video>
+    <button id="unmuteButton" >unmute</button>
+    <script>
+      let button = document.getElementById("unmuteButton");
+      let video = document.getElementById("video");
+      button.addEventListener("click", function() {\p        video.muted = false;
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+    	
+        .img1,.img2,.img3,.img4{
+            position: absolute;
+            left:400px;		/*修改我可以修改图片向左右偏移*/
+            top:50px;		/*修改我可以修改图片向上下偏移*/
+        }
+		/*轮播图下的小点点样式*/
+        .img5,.img6,.img7,.img8{
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top:405px;
+            z-index: 10;
+            border-radius: 50%;
+            background-color: white;	//点的默认颜色
+        }
+
+        .img5{
+            left: 30px;		/*点向右偏移30px*/
+        }
+
+        .img6{
+            left: 50px;		/*点向右偏移50px*/
+        }
+
+        .img7{
+            left: 70px;		/*点向右偏移70px*/
+        }
+
+        .img8{
+            left: 90px;		/*点向右偏移90px*/
+        }
+		/*点被选中的话，图片的层级变为2，即显示对应图片*/
+        .img1:hover,.img2:hover,.img3:hover,.img4:hover{
+            z-index: 2;
+        }
+		/*被选中的点的颜色为黑色且宽高变为8px，如此上下左右加上1px的框后才会跟其他的点一样大*/
+        .img5:hover,.img6:hover,.img7:hover,.img8:hover{
+            width: 8px;
+            height: 8px;
+            border: 1px solid red;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+	<!--nav是容器-->
+    <nav>
+    	<!--div是每个轮播图的子项-->
+        <div class="img1">
+        	<!--a是点击图片对应的超链接-->
+            <a href="https://cn.bing.com/">
+            	<!--对应的每张图片-->
+                <img src="../images/001.png">
+            </a>
+            <!--一个小圆点-->
+            <div class="img5"></div>
+        </div>
+        <!--下面的跟上面一样-->
+        <div class="img2">
+            <a href="https://cn.bing.com/">
+                <img src="../images/002.png">
+            </a>
+            <div class="img6"></div>
+        </div>
+        <!--下面的跟上面一样-->
+        <div class="img3">
+            <a href="https://cn.bing.com/">
+                <img src="../images/003.png">
+            </a>
+            <div class="img7"></div>
+        </div>
+        <!--下面的跟上面一样-->
+        <div class="img4">
+            <a href="javascript:;">
+                <img src="../images/004.png">
+            </a>
+            <div class="img8"></div>
+        </div>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,1575 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>天气预报,天气预报查询一周,天气预报15天查询,今天,明天,7天,10天,15天,30天,今天,明天,40天,未来一周天气预报查询_天气网</title>
+<meta name="keywords" content="天气预报,天气预报查询,天气预报15天,天气预报查询一周,天气预报15天查询,未来15天天气预报,天气预报30天,未来十五天天气查询"/>
+<meta name="description" content="天气网提供全国及世界各大城市天气预报查询以及历史天气查询,实时天气查询,准确提供一周天气预报查询及未来天气预报15天,30天,40天,7天,10天,未来十五天天气查询,并且为用户提供生活指数、健康指数、旅游攻略、交通出行、空气质量指数,及各类天气预报和生活资讯。"/>
+<meta name="viewport" content="user-scalable=no, initial-scale = 1, minimum-scale = 1, maximum-scale = 1, width=device-width">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+	<meta name="sogou_site_verification" content="" />
+ <!--<meta name="referrer" content="origin">-->
+<link rel="stylesheet" type="text/css" href="https://mstatic.tianqistatic.com/static/wap2018/css/wap_tianqi2017.css?v=20190128">
+<link rel="stylesheet" type="text/css" href="https://mstatic.tianqistatic.com/static/wap2018/mip/css/toutiao.css?v=2018080821"/>
+<script type="text/javascript" src="//ip.tianqi.com/ipdb/"></script>
+<script type="text/javascript" src="https://mstatic.tianqistatic.com/static/wap2018/js/wap_index.js"></script>
+	<script type="text/javascript" src="https://mstatic.tianqistatic.com/static/wap2018/js/wap_tianqi2017.js?v=202010132034"></script>
+</head>
+<style>
+	.modal{position:absolute;z-index:100000;top:0;left:0;bottom:0;right:0;background-color:rgba(0,0,0,0.5)}.tankuang{width:6rem;background-color:#fff;height:2.9rem;margin:0 auto;margin-top:4.5rem;border-radius:.15rem;text-align:center;position:relative}.body{overflow:hidden}.dingwei{padding-top:.5rem;margin-bottom:.5rem}.dingwei p{margin-bottom:.2rem;font-size:.32rem;color:#000}.dingwei span{font-size:.28rem;color:#999}.dingweiimg{width:.38rem;height:.38rem;position:relative;top:.08rem;margin-right:.02rem}.anniu{position:absolute;bottom:0;height:.88rem;border-top:1px solid #e6e6e6;width:100%;text-align:left}.quxiao{display:inline-block;width:49%;box-sizing:border-box;border-right:1px solid #e6e6e6;height:.86rem;text-align:center;line-height:.88rem;font-size:.3rem;color:#38f}.qiehuan{display:inline-block;width:49%;box-sizing:border-box;height:.88rem;text-align:center;line-height:.88rem;font-size:.3rem;color:#38f}.vi{visibility:hidden}
+	
+	.citydt{position: relative;}
+	.citydt .hhx_index_newHead {padding-left: 1.2rem!important;display: flex;align-items: center;justify-content: space-between;margin-top: 0.8rem!important;}
+	.citydt .hhx_index_newHead_l{display: flex;align-items: flex-end;}
+	.citydt .hhx_index_newHead_l text{max-width: 3.5rem; overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display: inline-block;margin: 0!important;font-size: 0.48rem!important;}
+	.citydt .hhx_index_newHead_l a{font-size: 14px;margin-left: 0.2rem;}
+	.citydt .hhx_index_newHead_r{position: absolute;right: 0.2rem;top: 0.3rem;}
+	.citydt .hhx_index_newHead_r text{font-size: 12px!important;}
+	.citydt .hhx_index_newHead_r div{font-size: 12px!important;margin-right: 0!important;}
+	.citydt .cityimg{width: 2rem!important;height: 1.3rem!important;border-radius: 7px;position: absolute;left: 0.2rem;top: 0.8rem;}
+	.citydt .now{font-size: .8rem!important;}
+	.citydt .date{font-size: 12px!important;padding-left: 1.2rem!important;padding-top: 0.3rem!important;}
+	.citydt .temp{bottom: 1rem!important;;}
+	.yuyinbofang_block{position: absolute;width: 1.99rem;height: 0.68rem;background:rgba(0,0,0,0.08);border-radius: 0.34rem 0 0 0.34rem;right: 0;display: flex;justify-content: center;align-items: center;font-size: 0.26rem;font-weight: 500;color: #ffffff;bottom: 1.4rem;z-index: 999;}
+    .yuyinbofang_block img{width: 0.44rem;height: 0.44rem;margin-right: 0.1rem;}
+</style>
+<body id="body">
+	<div class="modal vi" id="modal">
+		<div class="tankuang">
+			<div class="dingwei">
+				<p>温馨提示</p>
+				<img class="dingweiimg" src="https://mstatic.tianqistatic.com/static/wap2018/add1/weizhi2.png" alt="">
+				<span>您的定位不准确，请校正</span>
+				<!-- <img class="dingweiimg" src="/static/wap2018/add1/weizhi.png" alt="">
+				<span id="weizhi"></span> -->
+			</div>
+			<!-- <p>是否切换至该城市？</p> -->
+			<div class="anniu">
+				<span class="quxiao" id="quxiao">取消</span>
+				<span class="qiehuan" id="qiehuan">允许</span>
+			</div>
+		</div>
+	</div>
+<div id="allmap"></div>
+<!--< class="wap_box ">-->
+	<form action=""  method="post" id="newurl">
+		<input type="hidden" name="ct" value="" id="ctname">
+	</form>
+    <div class="topbar" style="border:none;">
+		<!--<a href="/" class="console.logo" title="湛江天气预报"></a>-->
+
+		<a href="/" class="console.logo_new" title="湛江天气预报"></a>
+		<h2>湛江天气预报</h2>
+        <a class="menuico"></a>
+    </div>
+	<div class="submenu" id="submenu">
+	<dl>
+		<dt><a href="/news/" class="b0">天气预报</a></dt>
+		<dd>
+			<a href="/prov/" title="全国天气预报查询" class="b404">全国天气</a>
+			<a href="/worldcity.html" title="国际天气预报查询" class="b405">国际天气</a>
+			
+		</dd>
+
+		<dt><a href="/news/" class="b0">天气资讯</a></dt>
+		<dd>
+			<a href="/news/list_404_1.html" title="最新天气" class="b404">最新天气</a>
+			<a href="/news/list_405_1.html" title="天气常识" class="b405">天气常识</a>
+			<a href="/news/list_406_1.html" title="万年历" class="b406">万年历</a>
+			<a href="/news/list_407_1.html" title="其它资讯" class="b407">其它资讯</a>
+		</dd>
+
+		<dt><a href="/toutiao/" class="b0">天气头条</a></dt>
+		<dd>
+			<a href="/toutiao/hots/" title="热点" class="b306">热点</a>
+			<a href="/toutiao/shenghuo/" title="生活" class="b301">生活</a>
+			<a href="/toutiao/yangsheng/" title="养生" class="b303">养生</a>
+			<a href="/toutiao/lvyou/" title="旅游" class="b302">旅游</a>
+			<a href="/toutiao/meishi/" title="美食" class="b304">美食</a>
+			<a href="/toutiao/zhiwu/" title="植物" class="b304">植物</a>
+			<a href="/toutiao/jujia/" title="居家" class="b310">居家</a>
+			<a href="/toutiao/jiankang/" title="健康" class="b318">健康</a>
+			<a href="/toutiao/techan/" title="特产" class="b318">特产</a>
+			<a href="/video/" title="视频" class="b318">视频</a>
+			<a href="/toutiao/jiaoyu/" title="教育" class="b318">教育</a>
+			<a href="/toutiao/ask/" title="问答" class="b318">问答</a>
+			<a href="/toutiao/jinrong/" title="金融" class="b318">金融</a>
+			<a href="/toutiao/falvfagui/" title="法律法规" class="b318">法律法规</a>
+			<a href="/toutiao/mengchong/" title="萌宠" class="b318">萌宠</a>
+		</dd>
+
+        <dt><a href="http://m.tianqi.com/" title="天气工具">天气工具</a></dt>
+        <dd>
+            <a href="/prov/" title="全国天气">全国天气</a>
+            <a href="/worldcity.html" title=""国际天气>国际天气</a>
+            <a href="/jingdian/" title="景点天气">景点天气</a>
+			<a href="/worldcity/jingdian.html" title="国际景点天气">国际景点</a>
+			<a href="/huaxue.html" title="滑雪天气">滑雪天气</a>
+			<a href="/zhuanti/" title="天气专题">天气专题</a>
+            <a href="/wxyt" title="卫星云图">卫星云图</a>
+            <a href="/xinwenlianbo" title="视频播报">视频播报</a>
+            <a href="/air/" title="pm2.5查询">pm2.5查询</a>
+            <a href="/lishi/" title="历史天气">历史天气</a>
+            <a href="/news/" title="天气新闻">天气新闻</a>
+            <a href="/chuanyi/" title="穿衣指数">穿衣指数</a>
+			<a href="/qiwen/china/" title="气温查询">气温查询</a>
+			<a href="https://tf.tianqi.com/" title="台风路径图" class="b405">台风路径图</a>
+			<a href="/qiwen/rank/" title="气温排行榜" class="b405">气温排行榜</a>
+        </dd>
+		<dt><a href="http://m.tianqi.com/" title="其他分类">其他分类</a></dt>
+		<dd>
+            <a href="/bianmin/" title="便民生活">便民生活</a>
+        </dd>
+    </dl>
+</div>
+<script language="javascript">
+    $(document).ready(function(){
+        $(".menuico").click(function(){
+            if ($("#submenu").css('display') == 'none'){
+                $("#submenu").show();
+            }else{
+                $("#submenu").hide();
+            }
+        });
+		var menuheight = $(window).height() - $('.topbar').height();
+		$("#submenu").height(menuheight);
+		$(window).bind("scroll", function () {  
+			$("#submenu").hide();
+		});
+    });
+</script>
+	<div class="yinliu_app"><p>您的私人定制天气管家,让关心成为常态!</p><a href="https://www.tianqi.com/erweima.html"><img src="https://mstatic.tianqistatic.com/static/wap2020/img/applogo.png" alt="">立即下载</a></div>
+	<div class="yinliu_appnew"><p>您的私人定制天气管家,让关心成为常态!</p><a href="https://apps.apple.com/app/apple-store/id1523823493?pt=121970635&ct=song&mt=8"><img src="https://mstatic.tianqistatic.com/static/wap2020/img/xylogo.png" alt="">立即下载</a></div>
+
+	<div class="city_weather cbg_b2 citydt" style="height: 5.6rem;">
+		<!-- 城市图片 -->
+		<!-- 2018/7/30 new topBar end -->
+		<div class="hhx_index_newHead clearfix">
+			<div class="hhx_index_newHead_l">
+				<!-- <img src="/static/wap2018/add1/hhx_index_i1.png" alt="定位"/> -->
+				<text>湛江</text>
+				<a href="/prov/">[切换]</a>
+			</div>
+			<div class="hhx_index_newHead_r">
+				<a id="hhx_download" href=""></a>
+				<text id="nowHour">19:18</text>
+				<div id="reload">更新</div>
+			</div>
+		</div>
+		<!-- 2018/7/30 new topBar start -->
+		<div class="date">2023年08月13日　星期日　癸卯年六月廿七 </div>
+		<!-- 新增预警板块 s -->
+				<!-- 新增预警板块 e -->
+		<!-- 新增语音播报板块 s -->
+		<div class="yuyinbofang_block">
+			<img src="https://mstatic.tianqistatic.com/static/wap2020/img/close.png" alt="" >
+			<i>语音播报</i>
+			<div style="display: none;"><audio id="audio" ></audio></div>
+		</div>
+		<!-- 新增语音播报板块 e -->
+        <dl class="temp">
+			<dt><img src="/static/wap2018/nightico1/b2.png"></dt>
+            <dd class="now">26<i>°C</i></dd>
+			<dd class="txt">阴 25~27°C</dd>
+			<!-- <dt><img src="https://mstatic.tianqistatic.com/static/wap2018/images/chognqign.jpg" /></dt> -->
+        </dl>
+
+		<div class="info"><a href="/air/zhanjiang/" class="b1"><i></i>优 1</a>
+			<span class="b2"><i></i>湿度 90%</span>
+			<span class="b3"><i></i>东风 1级</span></div>
+	</div>
+
+	<!-- 24小时预报s -->
+	<p class="hhx_newAllDayTit"><a href="/zhanjiang/today/">湛江24小时预报</a> </p>
+	<ul class="hhx_newAllDayUl" >
+				<li>
+			<p>19时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b2.png">
+					<span>26°C</span>
+		</li>
+				<li>
+			<p>20时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/nightico1/b2.png">
+					<span>26°C</span>
+		</li>
+				<li>
+			<p>21时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/nightico1/b7.png">
+					<span>26°C</span>
+		</li>
+				<li>
+			<p>22时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/nightico1/b7.png">
+					<span>26°C</span>
+		</li>
+				<li>
+			<p>23时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/nightico1/b2.png">
+					<span>25°C</span>
+		</li>
+				<li>
+			<p>00时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/nightico1/b2.png">
+					<span>25°C</span>
+		</li>
+				<li>
+			<p>01时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/nightico1/b7.png">
+					<span>25°C</span>
+		</li>
+				<li>
+			<p>02时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/nightico1/b7.png">
+					<span>26°C</span>
+		</li>
+				<li>
+			<p>03时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/nightico1/b7.png">
+					<span>26°C</span>
+		</li>
+				<li>
+			<p>04时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/nightico1/b8.png">
+					<span>26°C</span>
+		</li>
+				<li>
+			<p>05时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/nightico1/b8.png">
+					<span>26°C</span>
+		</li>
+				<li>
+			<p>06时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/nightico1/b8.png">
+					<span>25°C</span>
+		</li>
+				<li>
+			<p>07时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b8.png">
+					<span>25°C</span>
+		</li>
+				<li>
+			<p>08时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b8.png">
+					<span>25°C</span>
+		</li>
+				<li>
+			<p>09时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b9.png">
+					<span>26°C</span>
+		</li>
+				<li>
+			<p>10时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b8.png">
+					<span>28°C</span>
+		</li>
+				<li>
+			<p>11时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b7.png">
+					<span>29°C</span>
+		</li>
+				<li>
+			<p>12时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b8.png">
+					<span>29°C</span>
+		</li>
+				<li>
+			<p>13时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b7.png">
+					<span>29°C</span>
+		</li>
+				<li>
+			<p>14时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b7.png">
+					<span>28°C</span>
+		</li>
+				<li>
+			<p>15时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b8.png">
+					<span>30°C</span>
+		</li>
+				<li>
+			<p>16时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b2.png">
+					<span>30°C</span>
+		</li>
+				<li>
+			<p>17时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b7.png">
+					<span>30°C</span>
+		</li>
+				<li>
+			<p>18时</p>
+					<img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b7.png">
+					<span>29°C</span>
+		</li>
+			</ul>
+
+	<!-- 24小时预报e -->
+
+	<div class="weather_week">
+					<dl>
+							<a href="/zhanjiang/mingtian/" title="湛江明天天气预报">
+				<dt>明天</dt>
+							<dd class="txt">08/14</dd>
+				<dd class="img"><img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b8.png"></dd>
+				<dd class="txt2">中雨转多云</dd>
+				<dd class="txt">26~<b>32</b>°C</dd>
+				<dd class="txt3"><b style="background-color: #88cc04">优</b></dd>
+			</a>			</dl>
+					<dl>
+							<a href="/zhanjiang/houtian/" title="湛江后天天气预报">
+				<dt>后天</dt>
+							<dd class="txt">08/15</dd>
+				<dd class="img"><img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b8.png"></dd>
+				<dd class="txt2">多云转小雨</dd>
+				<dd class="txt">27~<b>32</b>°C</dd>
+				<dd class="txt3"><b style="background-color: #88cc04">优</b></dd>
+			</a>			</dl>
+					<dl>
+							<a href="/tianqi/zhanjiang/20230816.html?qd=tq" title="2023年08月16日湛江天气">
+				<dt>周三</dt>
+							<dd class="txt">08/16</dd>
+				<dd class="img"><img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b7.png"></dd>
+				<dd class="txt2">小雨</dd>
+				<dd class="txt">27~<b>33</b>°C</dd>
+				<dd class="txt3"><b style="background-color: #88cc04">优</b></dd>
+			</a>			</dl>
+					<dl>
+							<a href="/tianqi/zhanjiang/20230817.html?qd=tq" title="2023年08月17日湛江天气">
+				<dt>周四</dt>
+							<dd class="txt">08/17</dd>
+				<dd class="img"><img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b8.png"></dd>
+				<dd class="txt2">阴转小雨</dd>
+				<dd class="txt">27~<b>33</b>°C</dd>
+				<dd class="txt3"><b style="background-color: #88cc04">优</b></dd>
+			</a>			</dl>
+					<dl>
+							<a href="/tianqi/zhanjiang/20230818.html?qd=tq" title="2023年08月18日湛江天气">
+				<dt>周五</dt>
+							<dd class="txt">08/18</dd>
+				<dd class="img"><img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b9.png"></dd>
+				<dd class="txt2">大雨转小雨</dd>
+				<dd class="txt">27~<b>31</b>°C</dd>
+				<dd class="txt3"><b style="background-color: #88cc04">优</b></dd>
+			</a>			</dl>
+					<dl>
+							<a href="/tianqi/zhanjiang/20230819.html?qd=tq" title="2023年08月19日湛江天气">
+				<dt>周六</dt>
+							<dd class="txt">08/19</dd>
+				<dd class="img"><img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b8.png"></dd>
+				<dd class="txt2">阴转小雨</dd>
+				<dd class="txt">26~<b>30</b>°C</dd>
+				<dd class="txt3"><b style="background-color: #88cc04">优</b></dd>
+			</a>			</dl>
+					<dl>
+							<a href="/tianqi/zhanjiang/20230820.html?qd=tq" title="2023年08月20日湛江天气">
+				<dt>周日</dt>
+							<dd class="txt">08/20</dd>
+				<dd class="img"><img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b8.png"></dd>
+				<dd class="txt2">小雨转中雨</dd>
+				<dd class="txt">25~<b>30</b>°C</dd>
+				<dd class="txt3"><b style="background-color: #88cc04">优</b></dd>
+			</a>			</dl>
+					<dl>
+							<dt>周一</dt>
+							<dd class="txt">08/21</dd>
+				<dd class="img"><img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b8.png"></dd>
+				<dd class="txt2">中雨</dd>
+				<dd class="txt">26~<b>30</b>°C</dd>
+				<dd class="txt3"><b style="background-color: #88cc04">优</b></dd>
+						</dl>
+					<dl>
+							<dt>周二</dt>
+							<dd class="txt">08/22</dd>
+				<dd class="img"><img src="https://mstatic.tianqistatic.com/static/wap2018/ico2/b8.png"></dd>
+				<dd class="txt2">小雨转阴</dd>
+				<dd class="txt">26~<b>31</b>°C</dd>
+				<dd class="txt3"><b style="background-color: #88cc04">优</b></dd>
+						</dl>
+				<div class="ten-days border-right"><div>10<br/>天<br/>天<br/>气<br/>预<br/>报<br/></div><a href="/zhanjiang/10/"><img src="https://mstatic.tianqistatic.com/static/wap2018/images/ten_days.png"></a></div>
+		<div class="ten-days"><div>40<br/>天<br/>天<br/>气<br/>预<br/>报<br/></div><a href="/zhanjiang/40/"><img src="https://mstatic.tianqistatic.com/static/wap2018/images/ten_days.png"></a></div>
+	</div>
+<!-- 15天 30天 -->
+	<div class="hhx_day15M2">
+		<a title="湛江15天天气预报" class="hhx_day152" href="/zhanjiang/15/"><b></b>15天天气预报</a>
+		<a title="湛江30天天气预报" class="hhx_day302" href="/zhanjiang/30/"><b></b>30天天气预报</a>
+		<a title="湛江天气预报" class="hhx_shishi2" href="/zhanjiang/"><b></b>湛江天气预报</a>
+		<a title="湛江一周天气预报" class="hhx_qitian2" href="/zhanjiang/7/"><b></b>湛江一周天气</a>
+		<a title="湛江历史天气" class="hhx_lishi2" href="/lishi/zhanjiang/index.html"><b></b>湛江历史天气</a>
+	</div>
+	<!--<script type="text/javascript">citytianqi_app_down()</script>-->
+	<div class="banbox iban01"><script type="text/javascript">news_mb_wz()</script></div>
+	<div class="clearline1"></div>
+	<div class="hotspot">
+    <div class="hotspot-title">
+        <b>实时热点</b>
+        <div class="clear"></div>
+    </div>
+    <ul style="padding-left: 0.3rem;">
+                <li><a href="/toutiao/hots/207665.html?qd=tianqi" title="妻子实名举报医生老公"><img src="/static/wap2020/img/sanjiao.png" alt="">妻子实名举报医生老公</a></li>
+                <li><a href="/toutiao/hots/207664.html?qd=tianqi" title="国铁回应高铁票难买"><img src="/static/wap2020/img/sanjiao.png" alt="">国铁回应高铁票难买</a></li>
+                <li><a href="/toutiao/hots/207663.html?qd=tianqi" title="邓亚萍回应涉贪腐"><img src="/static/wap2020/img/sanjiao.png" alt="">邓亚萍回应涉贪腐</a></li>
+                <li><a href="/toutiao/hots/207651.html?qd=tianqi" title="华为上半年营收"><img src="/static/wap2020/img/sanjiao.png" alt="">华为上半年营收</a></li>
+                <li><a href="/toutiao/hots/207650.html?qd=tianqi" title="因低价摆摊遭同行殴打"><img src="/static/wap2020/img/sanjiao.png" alt="">因低价摆摊遭同行殴打</a></li>
+                <li><a href="/toutiao/hots/207649.html?qd=tianqi" title="二阳康复1个月又三阳"><img src="/static/wap2020/img/sanjiao.png" alt="">二阳康复1个月又三阳</a></li>
+                <li><a href="/toutiao/hots/207648.html?qd=tianqi" title="7月金融统计数据报告"><img src="/static/wap2020/img/sanjiao.png" alt="">7月金融统计数据报告</a></li>
+                <li><a href="/toutiao/hots/207647.html?qd=tianqi" title="雷军建议大家少刷手机"><img src="/static/wap2020/img/sanjiao.png" alt="">雷军建议大家少刷手机</a></li>
+                <li><a href="/toutiao/hots/207646.html?qd=tianqi" title="自驾罗布泊遇难细节"><img src="/static/wap2020/img/sanjiao.png" alt="">自驾罗布泊遇难细节</a></li>
+                <li><a href="/toutiao/hots/207645.html?qd=tianqi" title="缅甸柬埔寨抢中国游客"><img src="/static/wap2020/img/sanjiao.png" alt="">缅甸柬埔寨抢中国游客</a></li>
+                
+    </ul>
+    <div class="clear"></div>
+</div>
+<style type="text/css">
+    .hotspot-title b{
+        font-size:0.36rem;
+        color: #333;
+        line-height: 0.54rem;
+        font-weight: bold;
+        border-left: 0.08rem solid #38f;
+        padding: 0.02rem 0.2rem;
+    }
+    
+    .hotspot-title span{
+        float: right;
+        font-size: 24px!important;
+        font-family: Arial,"Microsoft Yahei";
+    }
+    .hotspot{
+        padding-bottom: 0.2rem;
+    }
+    .hotspot ul li a{
+        font-size: 0.3rem;
+        width: 50%;
+        padding-left: 0.2rem;
+        line-height: 0.65rem;
+        height: 0.6rem;
+        overflow: hidden;
+        float: left;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        position: relative;
+    }
+    .hotspot ul li img{
+        width: 0.07rem;
+        height: 0.12rem;
+        position: absolute;
+        left: 0;
+        top: 0.24rem;
+    }
+    .clear{
+        clear: both;
+    }
+</style>	<div class="clearbg5"></div>
+	<div class="tit02">
+		<span>
+			<a href="/zhuanti/">更多
+				<i style="font-family: '宋体';">&gt;&gt;</i>
+			</a>
+		</span>
+		<h3>热点专题</h3>
+	</div>
+
+	<div class="clearline1"></div>
+	<div class="hotTopicbox">
+		<ul>
+							<li>
+					<a href="/taifeng/taifenglujing.html" title="台风系统实时发布">
+						<i>
+							<img class="lazyload" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" data-original="http://content.pic.tianqistatic.com/content/topic/img/201908/06/14f4e61e9423e843.jpg" alt="台风系统实时发布">
+						</i>
+						<h5>台风系统实时发布</h5>
+					</a>
+				</li>
+							<li>
+					<a href="/taifeng/lanen.html" title="2023年第7号台风兰恩">
+						<i>
+							<img class="lazyload" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" data-original="http://picview.iituku.com/bqtuku/202304/07/439b9368a9d40517.jpg" alt="2023年第7号台风兰恩">
+						</i>
+						<h5>2023年第7号台风兰恩</h5>
+					</a>
+				</li>
+							<li>
+					<a href="/taifeng/kanu.html" title="2023年第6号台风卡努">
+						<i>
+							<img class="lazyload" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" data-original="http://picview.iituku.com/bqtuku/202304/07/21fa51aa32814878.jpg" alt="2023年第6号台风卡努">
+						</i>
+						<h5>2023年第6号台风卡努</h5>
+					</a>
+				</li>
+					</ul>
+	</div>
+	<div class="banbox iban02"><script type="text/javascript">cityindex_20_6()</script></div>
+
+	
+	<div class="clearbg5"></div>
+		<div class="tit02"><h3>湛江下辖区县天气预报</h3></div>
+	<ul class="more_weather3 more_weather2">
+					<li  ><div><a href="/chikan/" title="赤坎天气预报">赤坎天气</a></div></li>
+					<li  ><div><a href="/potou/" title="坡头天气预报">坡头天气</a></div></li>
+					<li  ><div><a href="/xiashan/" title="霞山天气预报">霞山天气</a></div></li>
+					<li  ><div><a href="/mazhang/" title="麻章天气预报">麻章天气</a></div></li>
+					<li  ><div><a href="/wuchuanshi/" title="吴川天气预报">吴川天气</a></div></li>
+					<li  ><div><a href="/xuwen/" title="徐闻天气预报">徐闻天气</a></div></li>
+					<li  ><div><a href="/lianjiangshi/" title="廉江天气预报">廉江天气</a></div></li>
+					<li  class="display-none" ><div><a href="/suixixian/" title="遂溪天气预报">遂溪天气</a></div></li>
+					<li  class="display-none" ><div><a href="/leizhou/" title="雷州天气预报">雷州天气</a></div></li>
+				<li class="button-display">
+			<div class="open-button"><span>展开<img src="https://mstatic.tianqistatic.com/static/wap2018/images/open.png"></span></div>
+			<div class="take-up display-none"><span>收起<img src="https://mstatic.tianqistatic.com/static/wap2018/images/take_up.png"></span></div>
+		</li>
+	</ul>
+		<div class="banbox iban01"><script type="text/javascript">tuiguang_jingdian_01()</script></div>
+		<div class="clearbg5"></div>
+	
+	<div class="tit02"><h3>湛江周边景点天气查询</h3><span><a href="/zhanjiang/jingdian.html" title="湛江周边景点天气查询">更多 <i style="font-family: '宋体';">&gt;&gt;</i></a></span></div>
+	<ul class="more_weather3">
+					<li><div><a href="/zhanjiang/jingdian/19169.html" title="[湛江景点]东海岛">东海岛</a></div></li>
+						<li><div><a href="/zhanjiang/jingdian/19360.html" title="[湛江景点]南三岛">南三岛</a></div></li>
+						<li><div><a href="/zhanjiang/jingdian/19443.html" title="[湛江景点]三岭山森林公园">三岭山森林公园</a></div></li>
+						<li><div><a href="/zhanjiang/jingdian/20081.html" title="[湛江景点]硇洲岛">硇洲岛</a></div></li>
+						<li><div><a href="/zhanjiang/jingdian/21329.html" title="[湛江景点]特呈岛">特呈岛</a></div></li>
+						<li><div><a href="/zhanjiang/jingdian/21337.html" title="[湛江景点]中澳友谊花园">中澳友谊花园</a></div></li>
+						<li><div><a href="/zhanjiang/jingdian/21343.html" title="[湛江景点]南国热带花园">南国热带花园</a></div></li>
+						<li><div><a href="/zhanjiang/jingdian/428.html" title="[湛江景点]徐闻大汉三墩">徐闻大汉三墩</a></div></li>
+				</ul>
+        <div class="clearbg5"></div>
+<div class="tit02"><span><a href="/zhanjiang/life.html">更多 <i style="font-family: '宋体';">&gt;&gt;</i></a></span><h3>湛江生活指数</h3></div>
+<div class="weather_life">
+    <ul>
+                            <a href="/zhanjiang/life/daisan.html">
+                        <li>
+                            <div><img src="https://mstatic.tianqistatic.com/static/wap2018/images/newcai_index_yu.png"></div>
+                            <div class="img-explain">带伞</div>
+                            <div class="weather">无需</div>
+                        </li>
+                    </a>
+                                    <a href="/zhanjiang/life/xiche.html">
+                        <li>
+                            <div><img src="https://mstatic.tianqistatic.com/static/wap2018/images/newcai_index_xc.png"></div>
+                            <div class="img-explain">洗车</div>
+                            <div class="weather">较不适宜</div>
+                        </li>
+                    </a>
+                                    <a href="/zhanjiang/life/ziwaixian.html">
+                        <li>
+                            <div><img src="https://mstatic.tianqistatic.com/static/wap2018/images/newcai_index_uv.png"></div>
+                            <div class="img-explain">紫外线</div>
+                            <div class="weather">最弱</div>
+                        </li>
+                    </a>
+                                    <a href="/zhanjiang/life/diaoyu.html">
+                        <li>
+                            <div><img src="https://mstatic.tianqistatic.com/static/wap2018/images/newcai_index_dy.png"></div>
+                            <div class="img-explain">钓鱼</div>
+                            <div class="weather">一般般</div>
+                        </li>
+                    </a>
+                                    <a href="/zhanjiang/chuanyi/">
+                        <li>
+                            <div><img src="https://mstatic.tianqistatic.com/static/wap2018/images/newcai_index.png"></div>
+                            <div class="img-explain">穿衣</div>
+                            <div class="weather">很热</div>
+                        </li>
+                    </a>
+                                        <a href="/zhanjiang/life/lvxing.html">
+                        <li>
+                            <div><img src="https://mstatic.tianqistatic.com/static/wap2018/images/newcai_index_tr.png"></div>
+                            <div class="img-explain">旅行</div>
+                            <div class="weather">不宜</div>
+                        </li>
+                    </a>
+                                    <a href="/zhanjiang/life/liangshai.html">
+                        <li>
+                            <div><img src="https://mstatic.tianqistatic.com/static/wap2018/images/newcai_index_ls.png"></div>
+                            <div class="img-explain">晾晒</div>
+                            <div class="weather">不宜</div>
+                        </li>
+                    </a>
+                
+           <!-- <li style="position: relative"><script type="text/javascript">tuiguang();</script></li>-->
+    </ul>
+</div>
+	<div class="clearbg5"></div>
+   <!--获取最新天气资讯  参数 ['category'=>404,'limit'=>10]-->
+	<div class="tit02" style="text-align: right;"><h3>最新天气资讯</h3><a title="最新天气资讯" href="/news/" style="font-size: 15px;margin-right: 10px;">更多 <i style="font-family: '宋体';">&gt;&gt;</i></a></div>
+<div class="clearline1"></div>
+<ul class="ranews_picleft">
+
+    <div class="banbox jiange">
+                    <script type="text/javascript">news_xg_tuijian_2_3()</script>
+            </div>
+            <li  >
+        <a href="https://m.tianqi.com/news/329515.html" title="总感觉高铁票越来越难买了 “中国铁路”发文回应车票分配问题"><i>
+            <img class="lazyload" data-original="http://oimg.tianqistatic.com/content/20230812/uto7UNZATlRma3WitlgxkZRd.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="总感觉高铁票越来越难买了 “中国铁路”发文回应车票分配问题" style="display: block;">
+        </i>
+            <h5>总感觉高铁票越来越难买了 “中国铁路”发文回应车票分配问题</h5>
+            <span>2023-08-12</span>
+            <span style="float: right;">6.1万阅读</span>
+        </a>
+        </li>
+            <li  >
+        <a href="https://m.tianqi.com/news/329514.html" title="“卡努”对黑龙江产生的降雨过程已结束 未来降雨情况预测分析来了"><i>
+            <img class="lazyload" data-original="http://oimg.tianqistatic.com/content/20230812/CeAJYZDTWGgj3MD25sVogKkN.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="“卡努”对黑龙江产生的降雨过程已结束 未来降雨情况预测分析来了" style="display: block;">
+        </i>
+            <h5>“卡努”对黑龙江产生的降雨过程已结束 未来降雨情况预测分析来了</h5>
+            <span>2023-08-12</span>
+            <span style="float: right;">5.8万阅读</span>
+        </a>
+        </li>
+            <li  >
+        <a href="https://m.tianqi.com/news/329513.html" title="2023年8号台风最新消息路径图 今年第8号台风多拉进入西北太平洋"><i>
+            <img class="lazyload" data-original="http://oimg.tianqistatic.com/content/20230812/eliwQ3c6CicBmqxuOl2ptV5V.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="2023年8号台风最新消息路径图 今年第8号台风多拉进入西北太平洋" style="display: block;">
+        </i>
+            <h5>2023年8号台风最新消息路径图 今年第8号台风多拉进入西北太平洋</h5>
+            <span>2023-08-12</span>
+            <span style="float: right;">5.0万阅读</span>
+        </a>
+        </li>
+            <li  >
+        <a href="https://m.tianqi.com/news/329512.html" title="2023中国台风网实时路径图 8号台风多拉生成后会去哪里是否影响我国"><i>
+            <img class="lazyload" data-original="http://oimg.tianqistatic.com/content/20230812/o5G485GMTszEke2lKS4Lo6Hb.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="2023中国台风网实时路径图 8号台风多拉生成后会去哪里是否影响我国" style="display: block;">
+        </i>
+            <h5>2023中国台风网实时路径图 8号台风多拉生成后会去哪里是否影响我国</h5>
+            <span>2023-08-12</span>
+            <span style="float: right;">5.8万阅读</span>
+        </a>
+        </li>
+            <li  >
+        <a href="https://m.tianqi.com/news/329511.html" title="2023台风八号最新消息 第8号台风多拉高清卫星云图实况"><i>
+            <img class="lazyload" data-original="http://oimg.tianqistatic.com/content/20230812/47XK7aMwpApGznu6HCVzIWTA.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="2023台风八号最新消息 第8号台风多拉高清卫星云图实况" style="display: block;">
+        </i>
+            <h5>2023台风八号最新消息 第8号台风多拉高清卫星云图实况</h5>
+            <span>2023-08-12</span>
+            <span style="float: right;">3.0万阅读</span>
+        </a>
+        </li>
+    <li class="display-none"><script type="text/javascript">news_jiancha()</script></li>        <li  class="display-none" >
+        <a href="https://m.tianqi.com/news/329510.html" title="“卡努”仍对东北地区有影响 接下来几天会有强降雨"><i>
+            <img class="lazyload" data-original="http://oimg.tianqistatic.com/content/20230812/hsv06BxMBNoCTMC8kzEn0o3k.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="“卡努”仍对东北地区有影响 接下来几天会有强降雨" style="display: block;">
+        </i>
+            <h5>“卡努”仍对东北地区有影响 接下来几天会有强降雨</h5>
+            <span>2023-08-12</span>
+            <span style="float: right;">7.2万阅读</span>
+        </a>
+        </li>
+            <li  class="display-none" >
+        <a href="https://m.tianqi.com/news/329509.html" title="台风“兰恩”将于15日前后登陆日本 未来会影响我国吗？"><i>
+            <img class="lazyload" data-original="http://oimg.tianqistatic.com/content/20230812/Tg7zACJ3aPITSpcYK8ZD7cYE.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="台风“兰恩”将于15日前后登陆日本 未来会影响我国吗？" style="display: block;">
+        </i>
+            <h5>台风“兰恩”将于15日前后登陆日本 未来会影响我国吗？</h5>
+            <span>2023-08-12</span>
+            <span style="float: right;">2.2万阅读</span>
+        </a>
+        </li>
+            <li  class="display-none" >
+        <a href="https://m.tianqi.com/news/329508.html" title="温州台风网台风2023实时路径图 兰恩可能于15日登陆日本"><i>
+            <img class="lazyload" data-original="http://oimg.tianqistatic.com/content/20230812/nrsZlsW4TRFFIAB07O3ZmCwC.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="温州台风网台风2023实时路径图 兰恩可能于15日登陆日本" style="display: block;">
+        </i>
+            <h5>温州台风网台风2023实时路径图 兰恩可能于15日登陆日本</h5>
+            <span>2023-08-12</span>
+            <span style="float: right;">5.7万阅读</span>
+        </a>
+        </li>
+            <li  class="display-none" >
+        <a href="https://m.tianqi.com/news/329507.html" title="7号台风兰恩卫星云图最新实况 2023年七号台风云图追踪"><i>
+            <img class="lazyload" data-original="http://oimg.tianqistatic.com/content/20230812/tU4f7jq10FauoONbhtyKWBaa.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="7号台风兰恩卫星云图最新实况 2023年七号台风云图追踪" style="display: block;">
+        </i>
+            <h5>7号台风兰恩卫星云图最新实况 2023年七号台风云图追踪</h5>
+            <span>2023-08-12</span>
+            <span style="float: right;">4.2万阅读</span>
+        </a>
+        </li>
+            <li  class="display-none" >
+        <a href="https://m.tianqi.com/news/329506.html" title="7号台风路径实时发布系统卫星云图 兰恩或于8月15日进入日本"><i>
+            <img class="lazyload" data-original="http://oimg.tianqistatic.com/content/20230812/z3apFrBOXfq8aIdwyj5TQlMW.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="7号台风路径实时发布系统卫星云图 兰恩或于8月15日进入日本" style="display: block;">
+        </i>
+            <h5>7号台风路径实时发布系统卫星云图 兰恩或于8月15日进入日本</h5>
+            <span>2023-08-12</span>
+            <span style="float: right;">1.8万阅读</span>
+        </a>
+        </li>
+        <li><div class="load-more"><div>加载更多<img src="https://mstatic.tianqistatic.com/static/wap2018/images/open.png"> </div></div></li>
+</ul>
+<script type="text/javascript">
+    $(function(){
+        $(".load-more").click(function(){
+            var li = $(this).parent().siblings("li");
+            li.removeClass("display-none");
+            $(this).parent().addClass("display-none");
+        })
+    })
+</script>	<!--<div class="clear5"></div>-->
+	<div class="banbox iban02"><script type="text/javascript">cityindex_02()</script></div>
+		<style type="text/css">
+	.index_ys_title {
+		font-size: 16px;
+		font-weight: bold;
+		color: #333;
+		line-height: 40px;
+		overflow: hidden;
+		border-bottom: 1px solid #eee;
+	}
+
+	.index_ys_title .active {
+		color: #38f;
+	}
+
+	.index_ys_title span {
+		float: left;
+		width: 50%;
+		text-align: center;
+		position: relative;
+		cursor: pointer;
+	}
+	.index_ys_title span:nth-of-type(1)::after {
+	    content: '';
+	    display: inline-block;
+	    width: 1px;
+	    height: 22px;
+	    background: #e6e6e6;
+	    position: absolute;
+	    right: 0;
+	    top: 9px;
+	}
+</style>
+<script type="text/javascript">
+	function nofind(_this) {
+		_this.src = "//content.pic.tianqistatic.com/20190103/abb98987d531cc5f07c3c521d50ee64b.jpg";
+		_this.onerror = null;
+	}
+</script>
+	<div class="clearbg5"></div>
+	<div class="tit02"><span style="padding: 0"><a href="/zhanjiang/jingdian.html" style="font-size: 15px;margin-right: 0px;">更多
+				<i style="font-family: '宋体';">>></i></a></span>
+		<h3>湛江周边景点</h3>
+	</div>
+	<div class="weather_jingdian">
+		<div class="scroll_box01">
+			<ul class="more_weather3">
+										<li><div><a href="/jingdian/19169.html" title="[湛江景点]东海岛">东海岛</a></div></li>
+											<li><div><a href="/jingdian/19360.html" title="[湛江景点]南三岛">南三岛</a></div></li>
+											<li><div><a href="/jingdian/19443.html" title="[湛江景点]三岭山森林公园">三岭山森林公园</a></div></li>
+											<li><div><a href="/jingdian/20081.html" title="[湛江景点]硇洲岛">硇洲岛</a></div></li>
+											<li><div><a href="/jingdian/21329.html" title="[湛江景点]特呈岛">特呈岛</a></div></li>
+											<li><div><a href="/jingdian/21337.html" title="[湛江景点]中澳友谊花园">中澳友谊花园</a></div></li>
+											<li><div><a href="/jingdian/21343.html" title="[湛江景点]南国热带花园">南国热带花园</a></div></li>
+											<li><div><a href="/jingdian/428.html" title="[湛江景点]徐闻大汉三墩">徐闻大汉三墩</a></div></li>
+								</ul>
+			<div style="clear: both"></div>
+		</div>
+	</div>
+	<div class="border"></div>
+<div class="banbox ban04">
+	<script type="text/javascript">
+        tianqi_20_12()
+	</script>
+</div>
+<style>
+	.scroll_picb01 {
+		overflow-x: auto;
+	}
+</style>
+<script type="text/javascript">
+	$(function() {
+		$('.index_ys_title span').click(function(){
+		  let arr=$(this).parent().next().children()
+		    qiehuan($(this),arr)
+		})
+		function qiehuan($this,arr){
+		    $this.addClass('active').siblings().removeClass('active')
+		    let idx=$this.index()
+		    $(arr[idx]).show().siblings().hide()
+		}
+		$('.scroll_picb01').each(function(index) {
+			var _child = $(this).children().length;
+			var _width = $(this).children().width() + 6;
+			var boxwidth = _child * _width;
+			$(this).css('width', boxwidth + 'px');
+		});
+		$("img.lazyload").lazyload({
+			placeholder: "http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg",
+			effect: "fadeIn",
+		});
+	});
+</script>
+<!--<script type="text/javascript" href="https://mstatic.tianqistatic.com/static/js/common/lazy_load.js"></script>-->
+
+
+	<div class="clearbg5"></div>
+	<!-- 城市问答s -->
+	<div class="tit02" style="text-align: right;">
+		<h3>湛江城市文化</h3>
+		<a href="/toutiao/wenhua_zhanjiang/" title="更多" style="font-size: 15px;margin-right: 10px;">更多 <i style="font-family: '宋体';">>></i></a>
+	</div>
+	<div class="clearline1"></div>
+	<ul class="hhx_newCSWD" style="margin-bottom:10px;">
+		<div class="banbox jiange"><script type="text/javascript">news_xg_tuijian()</script></div>
+					<li class="clearfix" style="margin-top:10px;padding:0 10px;">
+				<a href="/toutiao/wenhua/9221.html" style="display:flex;width:100%;justify-content: space-between;align-items: center;">
+					<div style="height: 70px;overflow: hidden;margin-right: 0.2rem;">
+						<div class="hhx_newCSWD_p1" style="display: block;width: auto;">湛江人五一出境旅游需注意什么?</div>
+						<span class="diandian" style="display: block;color: #999;font-size: 0.24rem;margin-top: 0.1rem;">检验检疫部门提醒计划出境游的市民：出发前首先了解前往地区或国家的传染病流行情况，前往黄热病疫区应提前接种黄热病疫苗，前往霍乱疫区应提前口服或是注射霍乱疫苗，已经有过接种史的建议再加强一次。</span> 
+					</div>
+					<img style="" class="hhx_newCSWD_img lazyload" data-original="http://content.pic.tianqistatic.com/content/wenda/chuxingwenda/images/202008/14/e58a915a2f446050.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="湛江人五一出境旅游需注意什么?">
+
+				</a>
+			</li>
+					<li class="clearfix" style="margin-top:10px;padding:0 10px;">
+				<a href="/toutiao/wenhua/8545.html" style="display:flex;width:100%;justify-content: space-between;align-items: center;">
+					<div style="height: 70px;overflow: hidden;margin-right: 0.2rem;">
+						<div class="hhx_newCSWD_p1" style="display: block;width: auto;"> 湛江有哪些过年习俗？</div>
+						<span class="diandian" style="display: block;color: #999;font-size: 0.24rem;margin-top: 0.1rem;">1、送灶神。“年廿三，送灶神”。在湛江，人们会送灶神上天，向玉皇大帝禀告人间善恶。每逢此时，人们会把灶君神位打扫干净，置酒、糖、果、糕，焚香祭灶。借此寓意希望灶神帮忙说好话，保佑平安。 2、洗邋遢。民间有言：“年廿八，洗邋遢。”腊月下旬起至年二十八，家家户户都大搞清洁卫生。在这期间，人们会清洗洗家具、窗户窗帘、碗碟、床铺...也有不少爱美人士趁着这段时间，洗头、理发、做发型...把一切打扫的干干净净，以全新的面貌去迎接新年。</span> 
+					</div>
+					<img style="" class="hhx_newCSWD_img lazyload" data-original="http://content.pic.tianqistatic.com/20190327/babb883a1c34d940712a0d26f364a643.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt=" 湛江有哪些过年习俗？">
+
+				</a>
+			</li>
+					<li class="clearfix" style="margin-top:10px;padding:0 10px;">
+				<a href="/toutiao/wenhua/8542.html" style="display:flex;width:100%;justify-content: space-between;align-items: center;">
+					<div style="height: 70px;overflow: hidden;margin-right: 0.2rem;">
+						<div class="hhx_newCSWD_p1" style="display: block;width: auto;">湛江人清明祭祖为什么用烧猪和墨鱼?</div>
+						<span class="diandian" style="display: block;color: #999;font-size: 0.24rem;margin-top: 0.1rem;">清明节祭祖，湛江人的习俗一定要用的就是拿“烧猪”拜祭祖先。以家族为单位，带着祭品和大盘大盘的鞭炮，抬着一只烧成金红色的烧猪，浩浩荡荡拜山去!清明的烧猪又称“金猪”。所谓金猪，就是在烧猪头部插上金纸做的金花，用作祭品。烧猪寄托着湛江人对祖宗的怀念和对子孙的厚望。这只金猪，既是向祖先献上我们厚重的祭品，又是对家族下一代的寄望，希望他们把日子过得红红火火，光宗耀祖。</span> 
+					</div>
+					<img style="" class="hhx_newCSWD_img lazyload" data-original="http://content.pic.tianqistatic.com/20190327/d629a094fb4df8afafe37bfb900511bb.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="湛江人清明祭祖为什么用烧猪和墨鱼?">
+
+				</a>
+			</li>
+					<li class="clearfix" style="margin-top:10px;padding:0 10px;">
+				<a href="/toutiao/wenhua/8330.html" style="display:flex;width:100%;justify-content: space-between;align-items: center;">
+					<div style="height: 70px;overflow: hidden;margin-right: 0.2rem;">
+						<div class="hhx_newCSWD_p1" style="display: block;width: auto;">湛江新车几年年检一次?</div>
+						<span class="diandian" style="display: block;color: #999;font-size: 0.24rem;margin-top: 0.1rem;">　　导语：新车几年年检一次?一般的车辆又是多久年检一次呢?今年车辆年检新规定对这些都作了详实的描述，其中新车6年内免检，其他的车辆则按照车辆类型在规定的年限内前往车管所进行年检。下文中，我们将详细为您介绍今年车辆年检新规定。　　营运载客车辆</span> 
+					</div>
+					<img style="" class="hhx_newCSWD_img lazyload" data-original="http://content.pic.tianqistatic.com/20190319/fbf2fdf64bb8619e0bdc915a878f97a6.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="湛江新车几年年检一次?">
+
+				</a>
+			</li>
+					<li class="clearfix" style="margin-top:10px;padding:0 10px;">
+				<a href="/toutiao/wenhua/6948.html" style="display:flex;width:100%;justify-content: space-between;align-items: center;">
+					<div style="height: 70px;overflow: hidden;margin-right: 0.2rem;">
+						<div class="hhx_newCSWD_p1" style="display: block;width: auto;">湛江醒狮的由来介绍</div>
+						<span class="diandian" style="display: block;color: #999;font-size: 0.24rem;margin-top: 0.1rem;">　　导语：据小编了解，湛江醒狮是广东省的汉族狮舞之一。广东省湛江市汉族民俗艺术繁多，各县区盛行舞醒狮，湛江醒狮以遂溪醒狮为代表。　　遂溪醒狮表演始于明清时期，200多年来，凡逢年过节、喜红庆典，都用醒狮助兴，祈求平安吉祥，醒狮表演成为当地乃</span> 
+					</div>
+					<img style="" class="hhx_newCSWD_img lazyload" data-original="http://content.pic.tianqistatic.com/20190109/cac756d8d87438d5bd52685e823c8f3c.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="湛江醒狮的由来介绍">
+
+				</a>
+			</li>
+					<li class="clearfix" style="margin-top:10px;padding:0 10px;">
+				<a href="/toutiao/wenhua/5895.html" style="display:flex;width:100%;justify-content: space-between;align-items: center;">
+					<div style="height: 70px;overflow: hidden;margin-right: 0.2rem;">
+						<div class="hhx_newCSWD_p1" style="display: block;width: auto;">湛江有哪些免费好玩的景点?</div>
+						<span class="diandian" style="display: block;color: #999;font-size: 0.24rem;margin-top: 0.1rem;">　　导语：湛江，旧称“广州湾”，别称“港城”，是广东省辖的地级市，辖3个县级市、5个区和2个县。湛江位于中国大陆最南端雷州半岛上，地处粤桂琼三省区交汇处，南濒南海隔琼州海峡与海南省相望，西临北部湾，背靠大西南，东与茂名市相连。地处北回归线以</span> 
+					</div>
+					<img style="" class="hhx_newCSWD_img lazyload" data-original="http://content.pic.tianqistatic.com/20181126/a9cc793d28eb419ec1cd6dc598d413a8.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="湛江有哪些免费好玩的景点?">
+
+				</a>
+			</li>
+					<li class="clearfix" style="margin-top:10px;padding:0 10px;">
+				<a href="/toutiao/wenhua/5679.html" style="display:flex;width:100%;justify-content: space-between;align-items: center;">
+					<div style="height: 70px;overflow: hidden;margin-right: 0.2rem;">
+						<div class="hhx_newCSWD_p1" style="display: block;width: auto;">湛江人喜欢吃什么?</div>
+						<span class="diandian" style="display: block;color: #999;font-size: 0.24rem;margin-top: 0.1rem;">　　导语：位于中国大陆最南端，有一个美丽富饶的沿海城市。以海产品之丰富闻名遐迩，湛江的海鲜质优，新鲜，这里除了新鲜的海产品，也有许多丰富的地道美食。今天就带大家去看看湛江人都喜欢吃什么美食。　　1、湛江鸡　　湛江鸡是“广东三大名鸡”之首，曾</span> 
+					</div>
+					<img style="" class="hhx_newCSWD_img lazyload" data-original="http://content.pic.tianqistatic.com/content/20181118/a41988e8a92cf86f5a4cc9373e59469d.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="湛江人喜欢吃什么?">
+
+				</a>
+			</li>
+					<li class="clearfix" style="margin-top:10px;padding:0 10px;">
+				<a href="/toutiao/wenhua/4922.html" style="display:flex;width:100%;justify-content: space-between;align-items: center;">
+					<div style="height: 70px;overflow: hidden;margin-right: 0.2rem;">
+						<div class="hhx_newCSWD_p1" style="display: block;width: auto;">湛江地区有哪些特色小吃</div>
+						<span class="diandian" style="display: block;color: #999;font-size: 0.24rem;margin-top: 0.1rem;">　　导语：湛江地区历史悠久，地大物博，物产众多。吃的文化也差不了哪儿去，各地小吃，各具风味!接下来，小编为大家介绍一下，湛江地区的几个特色食品。　　一.梅录烂镬炒粉　　湛江梅录烂镬炒粉，广东特产，地方美食。在历届的湛江美食节上，"烂镬炒粉"</span> 
+					</div>
+					<img style="" class="hhx_newCSWD_img lazyload" data-original="http://content.pic.tianqistatic.com/content/20181018/10acb472f264c7519212bf60d1870a11.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="湛江地区有哪些特色小吃">
+
+				</a>
+			</li>
+					<li class="clearfix" style="margin-top:10px;padding:0 10px;">
+				<a href="/toutiao/wenhua/4172.html" style="display:flex;width:100%;justify-content: space-between;align-items: center;">
+					<div style="height: 70px;overflow: hidden;margin-right: 0.2rem;">
+						<div class="hhx_newCSWD_p1" style="display: block;width: auto;">除了生蚝，湛江还有哪些美食?</div>
+						<span class="diandian" style="display: block;color: #999;font-size: 0.24rem;margin-top: 0.1rem;">　　导语：被誉为“中国海鲜美食之都”的湛江市，位于祖国最南端，三面环海，海岸线竟长达1556公里，占广东这个临海大省海岸线的46%，全市有港湾101处之多。海洋资源异常丰富，水产品连续多年居广东省首位。除了湛江生蚝，还有非常非常多的美食，一</span> 
+					</div>
+					<img style="" class="hhx_newCSWD_img lazyload" data-original="http://content.pic.tianqistatic.com/content/20180911/f7f3a9a69cb681b9df0eae6a07c61c55.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="除了生蚝，湛江还有哪些美食?">
+
+				</a>
+			</li>
+					<li class="clearfix" style="margin-top:10px;padding:0 10px;">
+				<a href="/toutiao/wenhua/3731.html" style="display:flex;width:100%;justify-content: space-between;align-items: center;">
+					<div style="height: 70px;overflow: hidden;margin-right: 0.2rem;">
+						<div class="hhx_newCSWD_p1" style="display: block;width: auto;">湛江周末最好玩的地方推荐</div>
+						<span class="diandian" style="display: block;color: #999;font-size: 0.24rem;margin-top: 0.1rem;">　　导语：马上就要到周末了，如果朋友来湛江，你将带他们去哪玩呢?其实湛江好玩的地方不少，所以来湛江旅游的游客也是络绎不绝。下面，小编就来给大家介绍几个著名的景点。　　1、推荐景点：湖光岩　　推荐理由：此湖原为一座火山口，约十六万年前因火山爆</span> 
+					</div>
+					<img style="" class="hhx_newCSWD_img lazyload" data-original="http://content.pic.tianqistatic.com/content/20180823/8e2d3488d0b062a3230c09cd013cc2a7.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="湛江周末最好玩的地方推荐">
+
+				</a>
+			</li>
+			</ul>
+	<script type="text/javascript">wap_lishi_02()</script>
+	<!-- 城市问答e -->
+	<div class="clearbg5"></div>
+	<div class="tit02" style="text-align: right;"><h3><!--湛江-->天气生活推荐</h3><a title="天气生活推荐" href="//m.tianqi.com/toutiao/" style="font-size: 15px;margin-right: 10px;">更多 <i style="font-family: '宋体';">&gt;&gt;</i></a></div>
+	<div class="clearline1"></div>
+	<ul class="ranews_picleft">
+		<div class="banbox jiange"><script type="text/javascript">news_jiancha()</script></div>
+						<li>
+					<a href="/toutiao/read/207662.html"  title="室内门的品牌排行榜 室内门品牌排行榜前十名"><i>
+						<img class="lazyload"  data-original="http://picview.iituku.com/content/20230812/MLNuHXs0JeYDOrFPBT0b9PHa.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="室内门的品牌排行榜 室内门品牌排行榜前十名">
+					</i>
+					<h5>室内门的品牌排行榜 室内门品牌排行榜前十名</h5>
+					<span>2023-08-12 </span>
+					</a>
+				</li>
+								<li>
+					<a href="/toutiao/read/207661.html"  title="世界智能手机品牌排行 智能手机品牌排行榜前十名"><i>
+						<img class="lazyload"  data-original="http://picview.iituku.com/content/20230812/gkbBDVT859WceJQIxZup4LdC.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="世界智能手机品牌排行 智能手机品牌排行榜前十名">
+					</i>
+					<h5>世界智能手机品牌排行 智能手机品牌排行榜前十名</h5>
+					<span>2023-08-12 </span>
+					</a>
+				</li>
+				<div class="bannerbox jiancha">
+										<script type="text/javascript">news_jiancha_02();</script></div>				<li>
+					<a href="/toutiao/read/207660.html"  title="世界十大羽绒服品牌排行榜 羽绒服品牌排行榜前十名"><i>
+						<img class="lazyload"  data-original="http://tukupic.tianqistatic.com/content/20221028/8kHEMDgQxEJS3V5yIhjUEXG7.jpg/nu" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="世界十大羽绒服品牌排行榜 羽绒服品牌排行榜前十名">
+					</i>
+					<h5>世界十大羽绒服品牌排行榜 羽绒服品牌排行榜前十名</h5>
+					<span>2023-08-12 </span>
+					</a>
+				</li>
+								<li>
+					<a href="/toutiao/read/207658.html"  title="世界珠宝品牌排行榜 珠宝品牌排行榜前十名"><i>
+						<img class="lazyload"  data-original="http://picview.iituku.com/content/20230812/TS25Zj1z4K3G9bYoO1gXVBaO.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="世界珠宝品牌排行榜 珠宝品牌排行榜前十名">
+					</i>
+					<h5>世界珠宝品牌排行榜 珠宝品牌排行榜前十名</h5>
+					<span>2023-08-12 </span>
+					</a>
+				</li>
+				<div class="bannerbox jiancha">
+										<script type="text/javascript">news_jiancha_01();</script></div>				<li>
+					<a href="/toutiao/read/207657.html"  title="世界钻戒排行榜前十名品牌 钻戒品牌排行榜前十名"><i>
+						<img class="lazyload"  data-original="http://picview.iituku.com/content/20230812/xw36jyOTpxtQRX0a81V3SaYG.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="世界钻戒排行榜前十名品牌 钻戒品牌排行榜前十名">
+					</i>
+					<h5>世界钻戒排行榜前十名品牌 钻戒品牌排行榜前十名</h5>
+					<span>2023-08-12 </span>
+					</a>
+				</li>
+								<li>
+					<a href="/toutiao/read/207642.html"  title="世界运动鞋品牌排行榜 运动鞋品牌排行榜前十名"><i>
+						<img class="lazyload"  data-original="http://picview.iituku.com/content/20230811/mhJIqIWGrSIDEvwkkxoY5a4r.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="世界运动鞋品牌排行榜 运动鞋品牌排行榜前十名">
+					</i>
+					<h5>世界运动鞋品牌排行榜 运动鞋品牌排行榜前十名</h5>
+					<span>2023-08-11 </span>
+					</a>
+				</li>
+				<div class="bannerbox jiancha">
+										<script type="text/javascript">news_jiancha_02();</script></div>				<li>
+					<a href="/toutiao/read/207641.html"  title="世界西服品牌排行榜 西服品牌排行榜前十名"><i>
+						<img class="lazyload"  data-original="http://tukupic.tianqistatic.com/content/20230630/vzRBQBsfD6dlGltqn4GkTknm.jpg/nu" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="世界西服品牌排行榜 西服品牌排行榜前十名">
+					</i>
+					<h5>世界西服品牌排行榜 西服品牌排行榜前十名</h5>
+					<span>2023-08-11 </span>
+					</a>
+				</li>
+								<li>
+					<a href="/toutiao/read/207639.html"  title="世界十大休闲鞋品牌排行榜 休闲鞋品牌排行榜前十名"><i>
+						<img class="lazyload"  data-original="http://picview.iituku.com/content/20230811/X7LxbzVgA6aCqcWP1WfFL3g5.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="世界十大休闲鞋品牌排行榜 休闲鞋品牌排行榜前十名">
+					</i>
+					<h5>世界十大休闲鞋品牌排行榜 休闲鞋品牌排行榜前十名</h5>
+					<span>2023-08-11 </span>
+					</a>
+				</li>
+				<div class="bannerbox jiancha">
+										<script type="text/javascript">news_jiancha_01();</script></div>				<li>
+					<a href="/toutiao/read/207638.html"  title="世界十大化妆品品牌排行榜 化妆品品牌排行榜前十名"><i>
+						<img class="lazyload"  data-original="http://picview.iituku.com/content/20230811/wyT6gfGSFrD1TvORQOlWZpnJ.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="世界十大化妆品品牌排行榜 化妆品品牌排行榜前十名">
+					</i>
+					<h5>世界十大化妆品品牌排行榜 化妆品品牌排行榜前十名</h5>
+					<span>2023-08-11 </span>
+					</a>
+				</li>
+								<li>
+					<a href="/toutiao/read/207637.html"  title="世界十大牛仔裤品牌排行榜 牛仔裤品牌排行榜前十名"><i>
+						<img class="lazyload"  data-original="http://content.pic.tianqistatic.com/content/toutiao/nvxing/images/202103/01/4b5e742b2c726c56.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="世界十大牛仔裤品牌排行榜 牛仔裤品牌排行榜前十名">
+					</i>
+					<h5>世界十大牛仔裤品牌排行榜 牛仔裤品牌排行榜前十名</h5>
+					<span>2023-08-11 </span>
+					</a>
+				</li>
+				<div class="bannerbox jiancha">
+										<script type="text/javascript">news_jiancha_02();</script></div>				<li>
+					<a href="/toutiao/read/207622.html"  title="世界涂料品牌排行榜 涂料品牌排行榜前十名"><i>
+						<img class="lazyload"  data-original="http://picview.iituku.com/content/20230810/37gKN872dXnvz0T1blsDgbwW.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="世界涂料品牌排行榜 涂料品牌排行榜前十名">
+					</i>
+					<h5>世界涂料品牌排行榜 涂料品牌排行榜前十名</h5>
+					<span>2023-08-10 </span>
+					</a>
+				</li>
+								<li>
+					<a href="/toutiao/read/207621.html"  title="世界照相机品牌排行榜 照相机品牌排行榜前十名"><i>
+						<img class="lazyload"  data-original="http://picview.iituku.com/content/20230810/DDBEFUHRclsWxB5mJ9zMtjcm.jpg" src="http://content.pic.tianqistatic.com/20190102/77d822c5e5ecd5f1534ed2b9a6fc8b57.jpg" alt="世界照相机品牌排行榜 照相机品牌排行榜前十名">
+					</i>
+					<h5>世界照相机品牌排行榜 照相机品牌排行榜前十名</h5>
+					<span>2023-08-10 </span>
+					</a>
+				</li>
+				<div class="bannerbox jiancha">
+										<script type="text/javascript">news_jiancha_01();</script></div>	</ul>
+	<div class="banbox iban04"><script type="text/javascript">cityindex_04()</script></div>
+	<div class="tit02"><h2>天气资讯</h2><span><a href="/news/" title="更多" style="font-size: 15px;margin-right: 0;">更多 <i style="font-family: '宋体';">>></i></a></span></div>
+	<div class="clearline1"></div><div class="clear10"></div>
+	<ul class="wap_txt01">
+		<li><a href="/news/329510.html" title="“卡努”仍对东北地区有影响 接下来几天会有强降雨" style="padding-left:6px">“卡努”仍对东北地区有影响 接下来几天会有强降雨</a></li><li><a href="/news/329509.html" title="台风“兰恩”将于15日前后登陆日本 未来会影响我国吗？" style="padding-left:6px">台风“兰恩”将于15日前后登陆日本 未来会影响我国吗？</a></li><li><a href="/news/329508.html" title="温州台风网台风2023实时路径图 兰恩可能于15日登陆日本" style="padding-left:6px">温州台风网台风2023实时路径图 兰恩可能于15日登陆日本</a></li><li><a href="/news/329507.html" title="7号台风兰恩卫星云图最新实况 2023年七号台风云图追踪" style="padding-left:6px">7号台风兰恩卫星云图最新实况 2023年七号台风云图追踪</a></li><li><a href="/news/329506.html" title="7号台风路径实时发布系统卫星云图 兰恩或于8月15日进入日本" style="padding-left:6px">7号台风路径实时发布系统卫星云图 兰恩或于8月15日进入日本</a></li><li><a href="/news/329505.html" title="2023年8月日本台风最新情况 “兰恩”15日接近日本东部和西部地区" style="padding-left:6px">2023年8月日本台风最新情况 “兰恩”15日接近日本东部和西部地区</a></li><li><a href="/news/329504.html" title="台风路径实时发布系统2023 8月12日今天7号台风“兰恩”最新消息" style="padding-left:6px">台风路径实时发布系统2023 8月12日今天7号台风“兰恩”最新消息</a></li><li><a href="/news/329503.html" title="第6号台风最新资讯 第6号台风“卡努”残留势力仍对东北地区有影响" style="padding-left:6px">第6号台风最新资讯 第6号台风“卡努”残留势力仍对东北地区有影响</a></li><li><a href="/news/329502.html" title="铁岭台风2023最新消息今天 台风“卡努”将给我市带来强降雨和大风" style="padding-left:6px">铁岭台风2023最新消息今天 台风“卡努”将给我市带来强降雨和大风</a></li><li><a href="/news/329501.html" title="黑龙江台风2023最新消息今天 台风“卡努”停止编号但降雨继续" style="padding-left:6px">黑龙江台风2023最新消息今天 台风“卡努”停止编号但降雨继续</a></li>	</ul>
+			<div class="clear5"></div>
+		<div class="banbox iban04"><script type="text/javascript">news_mb_wz()</script></div>
+		<div class="tit02"><h2>湛江天气预报资讯</h2><span><a href="/tianqi/zhanjiang/" title="更多" style="font-size: 15px;margin-right: 0;">更多 <i style="font-family: '宋体';">>></i></a></span></div>
+		<div class="clearline1"></div><div class="clear10"></div>
+		<ul class="wap_txt01">
+			<li><a href="/tianqi/zhanjiang/202308.html" title="2023年08月 湛江天气" style="padding-left:6px">2023年08月 湛江天气</a></li>
+			<li><a href="/tianqi/zhanjiang/20230813.html" title="2023年08月13日 湛江天气" style="padding-left:6px">2023年08月13日 湛江天气</a></li><li><a href="/tianqi/zhanjiang/20230812.html" title="2023年08月12日 湛江天气" style="padding-left:6px">2023年08月12日 湛江天气</a></li><li><a href="/tianqi/zhanjiang/20230811.html" title="2023年08月11日 湛江天气" style="padding-left:6px">2023年08月11日 湛江天气</a></li><li><a href="/tianqi/zhanjiang/20230810.html" title="2023年08月10日 湛江天气" style="padding-left:6px">2023年08月10日 湛江天气</a></li><li><a href="/tianqi/zhanjiang/20230809.html" title="2023年08月09日 湛江天气" style="padding-left:6px">2023年08月09日 湛江天气</a></li><li><a href="/tianqi/zhanjiang/20230808.html" title="2023年08月08日 湛江天气" style="padding-left:6px">2023年08月08日 湛江天气</a></li><li><a href="/tianqi/zhanjiang/20230807.html" title="2023年08月07日 湛江天气" style="padding-left:6px">2023年08月07日 湛江天气</a></li><li><a href="/tianqi/zhanjiang/20230806.html" title="2023年08月06日 湛江天气" style="padding-left:6px">2023年08月06日 湛江天气</a></li><li><a href="/tianqi/zhanjiang/20230805.html" title="2023年08月05日 湛江天气" style="padding-left:6px">2023年08月05日 湛江天气</a></li><li><a href="/tianqi/zhanjiang/20230804.html" title="2023年08月04日 湛江天气" style="padding-left:6px">2023年08月04日 湛江天气</a></li>		</ul>
+		<div class="clear5"></div>
+		<div class="banbox iban04"><script type="text/javascript">news_mb_wz()</script></div>
+		<div class="clearbg5"></div>
+			<div class="tit02"><h3>广东主要城市天气预报</h3></div>
+		<div class="clearline1"></div><div class="clear10"></div>
+		<p class="more_city5">
+							<a href="/guangzhou/" title="广州天气预报">广州天气</a></li>
+							<a href="/shaoguan/" title="韶关天气预报">韶关天气</a></li>
+							<a href="/huizhou/" title="惠州天气预报">惠州天气</a></li>
+							<a href="/meizhou/" title="梅州天气预报">梅州天气</a></li>
+							<a href="/shantou/" title="汕头天气预报">汕头天气</a></li>
+							<a href="/shenzhen/" title="深圳天气预报">深圳天气</a></li>
+							<a href="/zhuhai/" title="珠海天气预报">珠海天气</a></li>
+							<a href="/foshan/" title="佛山天气预报">佛山天气</a></li>
+							<a href="/zhaoqing/" title="肇庆天气预报">肇庆天气</a></li>
+							<a href="/zhanjiang/" title="湛江天气预报">湛江天气</a></li>
+							<a href="/jiangmen/" title="江门天气预报">江门天气</a></li>
+							<a href="/heyuan/" title="河源天气预报">河源天气</a></li>
+							<a href="/qingyuan3/" title="清远天气预报">清远天气</a></li>
+							<a href="/yunfu/" title="云浮天气预报">云浮天气</a></li>
+							<a href="/chaozhou/" title="潮州天气预报">潮州天气</a></li>
+							<a href="/dongguan/" title="东莞天气预报">东莞天气</a></li>
+							<a href="/zhongshan/" title="中山天气预报">中山天气</a></li>
+							<a href="/yangjiang/" title="阳江天气预报">阳江天气</a></li>
+							<a href="/jieyang/" title="揭阳天气预报">揭阳天气</a></li>
+							<a href="/maoming/" title="茂名天气预报">茂名天气</a></li>
+							<a href="/shanwei/" title="汕尾天气预报">汕尾天气</a></li>
+					</p>
+		<div class="clear10"></div>
+		<div class="clearline1"></div>
+	<div class="tit02"><h3>国内主要城市天气预报</h3></div>
+	<div class="clearline1"></div><div class="clear10"></div>
+	<p class="more_city5">
+		<a href="/beijing/" title="北京天气预报">北京天气</a></li><a href="/shanghai/" title="上海天气预报">上海天气</a></li><a href="/chongqing/" title="重庆天气预报">重庆天气</a></li><a href="/tianjin/" title="天津天气预报">天津天气</a></li><a href="/guangzhou/" title="广州天气预报">广州天气</a></li><a href="/shenzhen/" title="深圳天气预报">深圳天气</a></li><a href="/hangzhou/" title="杭州天气预报">杭州天气</a></li><a href="/zhengzhou/" title="郑州天气预报">郑州天气</a></li><a href="/fuzhou/" title="福州天气预报">福州天气</a></li><a href="/haikou/" title="海口天气预报">海口天气</a></li><a href="/wuhan/" title="武汉天气预报">武汉天气</a></li><a href="/changsha/" title="长沙天气预报">长沙天气</a></li><a href="/nanjing/" title="南京天气预报">南京天气</a></li><a href="/chengdu/" title="成都天气预报">成都天气</a></li><a href="/guiyang1/" title="贵阳天气预报">贵阳天气</a></li><a href="/kunming/" title="昆明天气预报">昆明天气</a></li><a href="/xian/" title="西安天气预报">西安天气</a></li><a href="/taiyuan/" title="太原天气预报">太原天气</a></li><a href="/jinan/" title="济南天气预报">济南天气</a></li><a href="/hefei/" title="合肥天气预报">合肥天气</a></li><a href="/nanchang/" title="南昌天气预报">南昌天气</a></li><a href="/nanning/" title="南宁天气预报">南宁天气</a></li><a href="/lasa/" title="拉萨天气预报">拉萨天气</a></li><a href="/xining/" title="西宁天气预报">西宁天气</a></li><a href="/lanzhou/" title="兰州天气预报">兰州天气</a></li><a href="/yinchuan/" title="银川天气预报">银川天气</a></li><a href="/shenyang/" title="沈阳天气预报">沈阳天气</a></li><a href="/changchun/" title="长春天气预报">长春天气</a></li><a href="/haerbin/" title="哈尔滨天气预报">哈尔滨天气</a></li><a href="/shijiazhuang/" title="石家庄天气预报">石家庄天气</a></li><a href="/huhehaote/" title="呼和浩特天气预报">呼和浩特天气</a></li>	</p>
+	<div class="clear10"></div>
+        <!--20201010 测试广告 -->
+        <!--<script type="text/javascript" src="https://www.vnmfnk.com/qium/js/ium.js"></script>-->
+        
+	<div class="clearbg5"></div>
+	<div class="tit02"><h3>国内各省天气预报</h3></div>
+	<div class="clearline1"></div><div class="clear10"></div>
+	<p class="more_city5">
+					<a href="/beijing/" title="北京天气预报">北京天气</a>
+					<a href="/tianjin/" title="天津天气预报">天津天气</a>
+					<a href="/chongqing/" title="重庆天气预报">重庆天气</a>
+					<a href="/shanghai/" title="上海天气预报">上海天气</a>
+					<a href="/province/zhejiang/" title="浙江天气预报">浙江天气</a>
+					<a href="/province/jiangsu/" title="江苏天气预报">江苏天气</a>
+					<a href="/province/fujian/" title="福建天气预报">福建天气</a>
+					<a href="/province/jiangxi/" title="江西天气预报">江西天气</a>
+					<a href="/province/anhui/" title="安徽天气预报">安徽天气</a>
+					<a href="/province/liaoning/" title="辽宁天气预报">辽宁天气</a>
+					<a href="/province/jilin/" title="吉林天气预报">吉林天气</a>
+					<a href="/province/heilongjiang/" title="黑龙江天气预报">黑龙江天气</a>
+					<a href="/province/hainan/" title="海南天气预报">海南天气</a>
+					<a href="/province/guangdong/" title="广东天气预报">广东天气</a>
+					<a href="/province/guangxi/" title="广西天气预报">广西天气</a>
+					<a href="/province/shandong/" title="山东天气预报">山东天气</a>
+					<a href="/province/shanxi/" title="山西天气预报">山西天气</a>
+					<a href="/province/hunan/" title="湖南天气预报">湖南天气</a>
+					<a href="/province/hubei/" title="湖北天气预报">湖北天气</a>
+					<a href="/province/henan/" title="河南天气预报">河南天气</a>
+					<a href="/province/hebei/" title="河北天气预报">河北天气</a>
+					<a href="/province/xinjiang/" title="新疆天气预报">新疆天气</a>
+					<a href="/province/xizang/" title="西藏天气预报">西藏天气</a>
+					<a href="/province/neimenggu/" title="内蒙古天气预报">内蒙古天气</a>
+					<a href="/province/sichuan/" title="四川天气预报">四川天气</a>
+					<a href="/province/yunnan/" title="云南天气预报">云南天气</a>
+					<a href="/province/guizhou/" title="贵州天气预报">贵州天气</a>
+					<a href="/province/shanxi1/" title="陕西天气预报">陕西天气</a>
+					<a href="/province/qinghai/" title="青海天气预报">青海天气</a>
+					<a href="/province/ningxia/" title="宁夏天气预报">宁夏天气</a>
+					<a href="/province/gansu/" title="甘肃天气预报">甘肃天气</a>
+					<a href="/hongkong/" title="香港天气预报">香港天气</a>
+					<a href="/aomen/" title="澳门天气预报">澳门天气</a>
+					<a href="/taiwan/" title="台湾天气预报">台湾天气</a>
+			</p>
+	<div class="clear10"></div>
+	<div class="banbox iban05"><script type="text/javascript">cityindex_06()</script></div>
+	<div class="tit02"><h3>天气工具</h3></div>
+<div class="clearline1"></div><div class="clear10"></div>
+<div class="tools">
+    <ul>
+        <li>
+            <a href="/wxyt" title="卫星云图">
+                <img src="https://mstatic.tianqistatic.com/static/wap2018/images/zimg2.png" alt=""><br/>
+                <span>卫星云图</span>
+            </a>
+        </li>
+        <li>
+            <a href="/xinwenlianbo" title="天气预报视频">
+                <img src="https://mstatic.tianqistatic.com/static/wap2018/images/zimg1.png" alt=""><br/>
+                <span>天气预报视频</span>
+            </a>
+        </li>
+        <li>
+            <a href="/jiaotongtianqi/" title="高速公路天气">
+                <img src="https://mstatic.tianqistatic.com/static/wap2018/images/zimg3.png" alt=""><br/>
+                <span>高速公路天气</span>
+            </a>
+        </li>
+        <li>
+            <a href="//m.tianqi.com/lishi.html" title="历史天气">
+                <img src="https://mstatic.tianqistatic.com/static/wap2018/images/zimg4.png" alt=""><br/>
+                <span>历史天气</span>
+            </a>
+        </li>
+        <li>
+            <a href="/haiyangtianqi/" title="海洋天气预报">
+                <img src="https://mstatic.tianqistatic.com/static/wap2018/images/zimg5.png" alt=""><br/>
+                <span>海洋天气预报</span>
+            </a>
+        </li>
+        <li>
+            <a href="/alarmnews/" title="天气预警">
+                <img src="https://mstatic.tianqistatic.com/static/wap2018/images/zimg6.png" alt=""><br/>
+                <span>天气预警</span>
+            </a>
+        </li>
+        <li>
+            <a href="/jiangshuiliang/" title="降水量分布图">
+                <img src="https://mstatic.tianqistatic.com/static/wap2018/images/zimg7.png" alt=""><br/>
+                <span>降水量分布图</span>
+            </a>
+        </li>
+        <li>
+            <a href="//m.tianqi.com/chuanyi/" title="穿衣指数">
+                <img src="https://mstatic.tianqistatic.com/static/wap2018/images/zimg8.png" alt=""><br/>
+                <span>穿衣指数</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+	<div class="tool">
+    <ul class="tool_inner" style="background:#f6f6f6;">
+        <li><a href="//m.tianqi.com/prov/" title="全国天气">全国天气</a></li>
+        <li><a href="//m.tianqi.com/jingdian/" title="旅游天气">旅游天气</a></li>
+        <li><a href="//m.tianqi.com/worldcity.html" title="国际天气">国际天气</a></li>
+        <li><a href="//m.tianqi.com/lishi.html" title="历史天气">历史天气</a></li>
+        <li><a href="//m.tianqi.com/news/" title="天气新闻">天气新闻</a></li>
+        <li><a href="//m.tianqi.com/news/list_405_1.html" title="天气常识">天气常识</a></li>
+        <!--<li><a href="//m.tianqi.com/toutiao/meishi/" title="城市美食">城市美食</a></li>-->
+        <li><a href="//m.tianqi.com/toutiao/techan/" title="城市特产">城市特产</a></li>
+        <li><a href="//m.tianqi.com/toutiao/lvyou/" title="城市景点">城市景点</a></li>
+
+        <li><a href="//m.tianqi.com/toutiao/jujia/" title="生活居家">生活居家</a></li>
+        <li><a href="//m.tianqi.com/toutiao/haowu/" title="好物推荐">好物推荐</a></li>
+        <li><a href="//m.tianqi.com/toutiao/wenhua/" title="城市文化">城市文化</a></li>
+        <li><a href="//m.tianqi.com/air/" title="空气质量指数">空气质量指数</a></li>
+        <li><a href="//m.tianqi.com/news/list_406_1.html" title="万年历查询">万年历查询</a></li>
+        <li><a href="//m.tianqi.com/toutiao/shenghuo/" title="生活小技巧">生活小技巧</a></li>
+        <li><a href="//m.tianqi.com/zhuanti/" title="天气专题">天气专题</a></li>
+        <li><a href="//m.wannianli.tianqi.com/jiemeng/" title="周公解梦">周公解梦</a></li>
+        <li><a href="https://m.tianqijun.com" title="天奇生活">天奇生活</a></li>
+        <li><a href="https://m.tianqijun.com/meishi.html" title="美食做法">美食做法</a></li>
+        <li><a href="https://m.tianqijun.com/nvxing.html" title="女性时尚">女性时尚</a></li>
+        <li><a href="https://m.tianqijun.com/qiche.html" title="汽车百科">汽车百科</a></li>
+        <div class="clears"></div>
+    </ul>
+</div>
+	
+<div class="footer" style="background:#323232;margin-top:0;">
+    <b><a style="color:#999;" href="http://www.tianqi.com/" title="电脑版">电脑版</a><i>丨</i><a style="color:#999;" href="http://m.tianqi.com/" title="天气网">天气网</a><i>丨</i><a style="color:#999;" href="http://m.tianqi.com/toutiao/" title="天气生活">天气生活</a><i>丨</i><a style="color:#999;" href="http://app.tianqijun.com/wap_download.html" title="天气君APP">天气君APP</a></b>
+    <p style="color:#999;">版权所有 Copyright© 2009-2023 <br /><a style="color:#999;" href="https://beian.miit.gov.cn/">渝ICP备18012671号-2</a> </p>
+	<p style="color:#999;">部分图片来自互联网，如有侵权请联系删除</p>
+    <div style="display:none;"><script type="text/javascript">tongji()</script></div>
+</div>
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+        $("img.lazyload").lazyload({effect: "fadeIn"});
+        var topbar = $('.topbar');
+        if(topbar.length > 0){
+            var toph = topbar.offset().top;
+            var barh = toph + topbar.height();
+            var menuheight = $(window).height() - barh;
+            $("#subnemu").height(menuheight);
+            $("#subnemu").css('top',barh+'px');
+            $(window).bind("scroll", function () {
+                $("#subnemu").hide();
+            });
+        }
+    });
+</script>
+
+</div>
+<script type="text/javascript" charset="utf-8">
+
+$(function(){
+	$(".button-display").click(function(){
+	    var liList = $(this).siblings("li");
+	    var className = $(liList[8]).attr("class");
+	    if(className.indexOf("display-none") > -1){
+            liList.removeClass("display-none");
+            $(this).find(".open-button").addClass("display-none");
+            $(this).find(".take-up").removeClass("display-none");
+		}else {
+			for(var i = 0; i < liList.length; i++){
+			    if(i > 6){
+                    $(liList[i]).addClass("display-none");
+				}
+			}
+            $(this).find(".open-button").removeClass("display-none");
+            $(this).find(".take-up").addClass("display-none");
+		}
+	})
+
+	$("img.lazyload").lazyload({effect: "fadeIn"});
+	var defwidth = $('.outheight').width();
+	var outheight = parseInt(defwidth*55/100);
+	$('.outheight').css('height' , outheight + 'px');
+
+	$(".load-more").click(function(){
+	    var ranews_picleftList = $("#ranews_picleft li")
+        ranews_picleftList.removeClass("display-none");
+	    $(ranews_picleftList[ranews_picleftList.length - 1]).addClass("display-none");
+	})
+});
+</script>
+
+<script type="text/javascript">
+	// 语音播报
+	var audio = document.getElementById('audio'); 
+	var open=true,qingqiu=true;
+	$('.yuyinbofang_block').click(async function(){
+		if(qingqiu){
+			var newtime=new Date().getTime()
+			var obj = localStorage.getItem("token");	
+			if((obj && newtime-obj.time>300000) || !obj){
+				obj=await gettoken("/tianqi/voice/parameter.html")
+				obj= JSON.parse(obj)
+				var curTime = new Date().getTime();
+				obj.time=curTime
+				obj=JSON.stringify(obj)
+				localStorage.setItem("token", obj);
+			}
+			obj= JSON.parse(obj)
+			qingqiu=false
+
+            // $('#audio').attr('src',obj.result.data)
+
+			// 转格式
+			function base64ToBlob(base64, fileType) {
+				let typeHeader = 'data:application/' + fileType + ';base64,'; // 定义base64 头部文件类型
+				let audioSrc = typeHeader + base64; // 拼接最终的base64
+				let arr = audioSrc.split(',');
+				let array = arr[0].match(/:(.*?);/);
+				let mime = (array && array.length > 1 ? array[1] : type) || type;
+				// 去掉url的头，并转化为byte
+				let bytes = window.atob(arr[1]);
+				// 处理异常,将ascii码小于0的转换为大于0
+				let ab = new ArrayBuffer(bytes.length);
+				// 生成视图（直接针对内存）：8位无符号整数，长度1个字节
+				let ia = new Uint8Array(ab);
+				for (let i = 0; i < bytes.length; i++) {
+					ia[i] = bytes.charCodeAt(i);
+				}
+				return new Blob([ab], {
+					type: mime
+				});
+			}
+
+			let audioBlob = base64ToBlob(obj.result.data, "mp3");
+			let audio = document.getElementById("audio");
+			audio.src = window.URL.createObjectURL(audioBlob);
+			audio.addEventListener("canplay", () => {
+				// audio.currentTime = 0
+				window.URL.revokeObjectURL(audio.src);
+			});
+		}
+		
+		if(open){
+		open=false
+		$(this).find('img').attr('src','https://mstatic.tianqistatic.com/static/wap2020/img/open.png')
+		setTimeout(() => {
+			audio.play();
+        }, 10 );
+	 }else{
+		open=true
+		$(this).find('img').attr('src','https://mstatic.tianqistatic.com/static/wap2020/img/close.png')
+		audio.pause();
+	 }
+	
+	})
+	function gettoken(url){
+		return new Promise(function(resolve,reject){
+			let ajaxSetting = {
+			method:'POST',
+            url: url,
+			async:false,
+			data:{text:'为您播报今日天气：  [湛江市]，当前天气： 26℃,  多云，明天上午10点钟后转小雨。  今天最低温度：25℃， 最高温度：27℃， 综合风力：东风 1级。下面请听明日天气： 明天白天：中雨转多云， 明天晚上：多云，明天温度：25℃ 至 30℃ 。   谢谢收听， 再见！'},
+            success: function (response) {
+                resolve(response);
+            },
+            error: function () {
+                reject("请求失败");
+            }
+        }
+        $.ajax(ajaxSetting);
+		}).catch((e) => {})
+	}
+$(function(){
+    
+	var locals=localStorage.getItem("a");
+	var isc="";
+	var urls=window.location.href.split("m.tianqi.com");
+	isc=urls[urls.length-1];
+//        locals = false; 
+         var is_modal_show=localStorage.getItem('is_modal_show'); 
+          if(is_modal_show==true)
+          {
+             return;
+          }
+	if(locals || locals==true){
+		$('#modal').hide();
+		$("#body").removeClass("body");
+		return
+	}else{
+		//http://t|l  https://t|l  m.tianqi.com /?$  =='/' || ==''
+		if(isc !="/"){
+		
+			$('#modal').hide();
+			$("#body").removeClass("body");
+			return
+		}else{
+		
+			$('#modal').hide();
+			$("#body").removeClass("body");
+			var citys=$('.hhx_index_newHead_l text').html();
+			var latlon=null;
+			var cityphp="";
+			//ajax获取用户所在经纬度
+			var is_modal_show=localStorage.getItem('is_modal_show'); 
+			if(is_modal_show==true){return false}
+			var map = new BMap.Map("allmap");
+			var geolocation = new BMap.Geolocation();
+			geolocation.enableSDKLocation();
+			geolocation.getCurrentPosition(function(r){
+           if(this.getStatus() == BMAP_STATUS_SUCCESS){
+			latlon=r.point.lat+","+ r.point.lng;
+			var ulrs=window.location.href;
+			$.ajax({
+                        type: "POST",
+                        url: '/tianqi/gps',
+                        dataType:'json',
+                        data:{
+                            gps:latlon,
+                            cityname:cityphp,
+                            correctip:"1",
+                        },
+						success: function (json) {
+                         
+							if(json.name){
+								var zhixia=json.name;
+							    console.log(json)
+									if(zhixia.indexOf(citys) != -1){
+										$('#modal').hide();
+										$("#body").removeClass("body");
+										return
+									}else{
+                                         var is_modal_show=localStorage.getItem('is_modal_show'); 
+                                         if(is_modal_show==true)
+										 {return}
+                                                       $('#modal').removeClass("vi")
+                                                        localStorage.setItem("is_modal_show",true)
+                                                         //如果弹出过就不弹出
+                                                        $('#modal').show();
+                                                        $("#body").addClass("body");
+                                                     
+									}
+							
+							}
+						}
+					});
+           }
+             
+    });
+	
+			// $.ajax({
+			// 	url:"//api.map.baidu.com/location/ip?ak=bFNYmleHunu49WxpIlCN8QxTpzs93c8V&coor=bd09ll",
+			// 	type:"POST",
+			// 	dataType:"jsonp",
+			// 	success:function(data){
+					
+			// 		latlon=data.content.point.y+","+data.content.point.x;
+			// 		//ajax根据经纬度获取省市区
+			// 	    alert(latlon)
+			// 		var ulrs=window.location.href;
+			// 		$.ajax({
+            //             type: "POST",
+            //             url: '/tianqi/gps',
+            //             dataType:'json',
+            //             data:{
+            //                 gps:latlon,
+            //                 cityname:cityphp,
+            //                 correctip:"1",
+            //             },
+			// 			success: function (json) {
+                        
+			// 				if(json.name){
+			// 					var zhixia=json.name;
+							
+							
+			// 						if(zhixia.indexOf(citys) != -1){
+			// 							$('#modal').hide();
+			// 							$("#body").removeClass("body");
+			// 							return
+			// 						}else{
+									
+			// 							$('#modal').removeClass("vi")
+			// 							$('#modal').show();
+			// 							$("#body").addClass("body");
+			// 						}
+							
+			// 				}
+			// 			}
+			// 		});
+			// 	}
+			// });
+		}
+	}
+
+
+	$('#quxiao').on('click',function(event){
+		event.stopPropagation();
+		localStorage.setItem("a",true)
+		$('#modal').hide();
+		$("#body").removeClass("body");
+	})
+	$('#qiehuan').on('click',function(event){
+		event.stopPropagation();
+		window.location.href="/"
+	})
+	
+})
+</script>
+<script type="text/javascript">
+     if(!bwRedirect_01() && !bwRedirect()){
+		 if (fromios()){
+			 $('.yinliu_appnew').css('display','flex')
+		 }else {
+			 $('.yinliu_app').css('display','flex')
+		 }
+     }
+    var is_modal_show=localStorage.getItem('is_modal_show'); 
+    
+    if(is_modal_show!=true){
+	//  授权
+	var citys = '湛江市';
+	var pagetype = 'cityindex';
+	var currcity = '湛江';
+	var isshow =1;
+	var html_sop = ' <div class="mengban_hhx">';
+	html_sop+='<div id="option_hhx">';
+	html_sop+='<div>是否授权获取您当前的位置?</div>';
+	html_sop+='<div>';
+	html_sop+='<text id="confirm" class="btn_hhx">获取</text>';
+	html_sop+='<text id="cancel" class="btn_hhx">取消</text>';
+	html_sop+='</div>';
+	html_sop+='</div>';
+	html_sop+='</div>';
+	if (isshow==0){
+		var mydate = Date.parse(new Date());
+		var hhxcityTime = Number(localStorage.hhxcityTime)+(60*60*12*1000);
+		if (localStorage.hhxcityName && hhxcityTime>mydate){
+			var hhxcityName =localStorage.hhxcityName;
+			if (currcity !=hhxcityName){
+			   // var url ='https://m.tianqi.com';
+				window.onload = document.write(html_sop)
+	//            $.post(url,{ct:hhxcityName},function(result){
+	//				location.href=url;
+	//            });
+			}
+		}else {
+			window.onload = document.write(html_sop)
+		}
+	}
+	if (isshow==1){
+		$('.wap_box').removeClass('hide_hhx');
+		$('.mengban_hhx').hide();
+	}
+	var confirm = $('#confirm');
+	var cancel = $('#cancel');
+	var option_ = $('#option_');
+	$('body').on('click','.mengban_hhx',function () {
+		$('.mengban_hhx').hide();
+		$.getScript("https://mstatic.tianqistatic.com/static/tianqi2018/js/weizhi.js",function(){  //加载test.js,成功后，并执行回调函数
+		});
+	})
+	confirm.on('click',function(){
+		$('.mengban_hhx').hide();
+		$.getScript("https://mstatic.tianqistatic.com/static/tianqi2018/js/weizhi.js",function(){  //加载test.js,成功后，并执行回调函数
+		});
+
+	})
+	cancel.on('click',function(){
+		$('.mengban_hhx').hide();
+		$('.wap_box').show();
+	})
+	$(function(){
+		$('#reload').on('click',function(){
+			window.location.reload();
+		});
+	})
+        
+    }
+	</script>
+        
+<script type="text/javascript">
+	$(function(){
+		var f=1
+			if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+				$('#hhx_download').attr('href','https://itunes.apple.com/cn/app/%E5%A4%A9%E6%B0%94%E5%90%9B-%E7%B2%BE%E5%87%86%E7%9A%84%E6%8B%9F%E4%BA%BA%E5%8C%96%E5%A4%A9%E6%B0%94%E5%AE%9E%E6%97%B6%E8%B7%9F%E8%B8%AA%E9%A2%84%E6%8A%A5-%E5%8E%9F%E5%A4%A9%E6%B0%94%E5%AE%9D/id990500440?mt=8');
+				$('#hhx_download_1').attr('href','https://itunes.apple.com/cn/app/%E5%A4%A9%E6%B0%94%E5%90%9B-%E7%B2%BE%E5%87%86%E7%9A%84%E6%8B%9F%E4%BA%BA%E5%8C%96%E5%A4%A9%E6%B0%94%E5%AE%9E%E6%97%B6%E8%B7%9F%E8%B8%AA%E9%A2%84%E6%8A%A5-%E5%8E%9F%E5%A4%A9%E6%B0%94%E5%AE%9D/id990500440?mt=8');
+			} else if (/(Android)/i.test(navigator.userAgent)) {
+				$('#hhx_download').attr('href','http://www.tianqi.com/softimg/install/weather.apk')
+				$('#hhx_download_1').attr('href','http://www.tianqi.com/softimg/install/tqj_citytianqi.apk')
+			};
+			
+			$(".zhankai24").click(function(){
+				if(f==1){
+					$(".hhx_newAllDayUl").css("display","");
+					$(".zhankai24").html('收起 <img src="https://mstatic.tianqistatic.com/static/wap2018/images/spread_blue1.png" />');
+					f=2;
+				}else{
+					$(".hhx_newAllDayUl").css("display","none");
+					$(".zhankai24").html('展开 <img src="https://mstatic.tianqistatic.com/static/wap2018/images/spread_blue2.png" />');
+					f=1
+				}
+			})
+			
+			
+			
+			
+	})
+</script>
+<div class="tongji" style="display:none;"><script language="javascript">tongji();</script></div>
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=s1pBDUfynbLM3BbQ5S4dfBAjKbtHsiCN"></script>
+<script type="text/javascript" src="https://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script type="text/javascript" src="https://mstatic.tianqistatic.com/static/toutiao/js/public.js?v=202010132034"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 以下的链接地址中最后ak请自行到百度开发者中心申请 -->
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=tBGkcuOLqfRPot0mIWjKefcM">
+    </script>
+    <title>百度地图的使用</title>
+    <style>
+        #container {
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+</head>
+ 
+<body>
+    <div id="container"></div>
+    <script>
+        // 创建地图实例
+        var map = new BMap.Map("container");
+        // 创建点坐标
+        var point = new BMap.Point(116.300829, 39.915836);
+        // 初始化地图，设置中心点坐标和地图级别
+        map.centerAndZoom(point, 17);
+ 
+        // 添加地图上的覆盖物——标记
+        var mk = new BMap.Marker(point);
+        mk.setAnimation(BMAP_ANIMATION_BOUNCE);
+        map.addOverlay(mk);
+ 
+ // 获取当前城市
+      const geolocation = new window.BMap.Geolocation();
+      geolocation.getCurrentPosition((r) => {
+        console.log(r);
+        const city = r.address.city; // 返回当前城市
+        this.currCity = city;
+        this.$set(this.Baidulocation, 0, r.longitude);
+        this.$set(this.Baidulocation, 1, r.latitude);
+      });
+
+        // 启用滚轮缩放
+        map.enableScrollWheelZoom(true);
+        // 添加导航控件
+        map.addControl(new BMap.NavigationControl());
+        // 添加缩放控件
+        map.addControl(new BMap.ScaleControl());
+        // 添加概览图控件
+        map.addControl(new BMap.OverviewMapControl());
+        // 添加地图类型控件
+        map.addControl(new BMap.MapTypeControl());
+    </script>
+</body>
+ 
+</html>

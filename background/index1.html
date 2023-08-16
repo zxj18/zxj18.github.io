@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gradient 1_bit CSS 动效实战课程之渐变色操作</title>
+    <style>
+        body {
+            margin: 0 0;
+            text-align: center;
+        }
+        
+        span {
+            display: inline-block;
+            margin-top: 300px;
+            font-size: 50px;
+            color: aliceblue;
+            font-weight: bold;
+        }
+        
+        .float-gradient {
+            background: linear-gradient(-45deg, #990066, #FFCC00, #CC0033);
+            background-size: 500% 500%;
+            animation: moiveAnimation 15s infinite;
+        }
+        
+        @keyframes moiveAnimation {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+    </style>
+</head>
+
+<body class="float-gradient">
+    <span>
+        纯 CSS 浮动背景——1_bit CSS动效实战课程
+    </span>
+</body>
+
+</html>

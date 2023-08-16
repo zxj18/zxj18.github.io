@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <marquee behavior="scroll" direction="left" scrollamount="30"><font color="red" size="15px" >666</font> </marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="20"><font color="aqua" size="20px">又五杀了</font> </marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="25"><font >666</font> </marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="20"><font color="pink" size="10px">666</font> </marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="28"><font color="red">666</font> </marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="20"><font color="greenyellow" size="20px">牛蛙牛蛙</font> </marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="10"><font size="16px" >666</font> </marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="15"><font color="pink" size="20px">厉害</font> </marquee>
+</div>
+</body>
+</html>
+## 标题
+**加粗样式**2
+
+文字动态发光特效代码简单实现
+
+```bash
+第一种方法：
+<html>
+    <head>
+ 
+        <title>文字动态发光特效代码</title>
+    </head>
+    <body bgcolor="#cccccc" style="filter:progid:DXImageTransform.microsoft.gradient(gradienttype=1,startColorStr=blue,endColorStr=skyblue)">
+ 
+        <div id="myDiv" style="text-align:center;margin:100px auto;"><marquee behavior="scroll" direction="left" scrollamount="3"><meta http-equiv="refresh" content="20"><iframe style="filter: alpha(opacity=100,style=2);" src="https://v.api.aa1.cn/api/yiyan/index.php?type=get" scrolling="no" width="250" height="250" frameborder="0"></iframe></meta></marquee></div>
+        <script>
+ 
+            function start1() {
+ 
+                document.getElementById("myDiv").style.color = "red";
+ 
+                setTimeout("start2()", 1000);//延时100毫秒执行下一个
+ 
+            }
+ 
+            function start2() {
+ 
+                document.getElementById("myDiv").style.color = "blue";
+ 
+                setTimeout("start3()", 1000);
+ 
+            }
+ 
+            function start3() {
+ 
+                document.getElementById("myDiv").style.color = "#BFAD09";
+ 
+                setTimeout("start4()", 1000);
+ 
+            }
+ 
+            function start4() {
+ 
+                document.getElementById("myDiv").style.color = "#009688";
+ 
+                setTimeout("start1()", 1000);
+ 
+            }
+ 
+            start1();//执行一遍函数start1进入循环
+ 
+        </script>
+    </body>
+</html>

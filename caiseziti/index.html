@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8" />
+</head>
+ 
+<body>
+    <div class="font">彩色动态镂空字体</div>
+</body>
+<style>
+    .font {
+        font-size:50px ;
+        color: transparent;
+        background: -webkit-linear-gradient(10deg,#7c3226 1%, #e57d6d 25%, #1b6788 50%, #ef00f7 75%, #7c3226 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: auto;
+    }
+        /* 滚动徐恰到好处，不然会顿一下，建议拉大position距离循环时间延长 */
+    @keyframes fontline {
+        0% {
+            background-position: 0px;
+        }
+ 
+        100% {
+            background-position: 2000px;
+        }
+    }
+ 
+    .font {
+        animation: fontline 10s infinite linear;
+        -webkit-animation: fontline 10s infinite linear;
+    }
+</style>
+ 
+</html>

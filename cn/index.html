@@ -85,11 +85,7 @@
         <div class="row">
 <iframe autoplay="autoplay" controls="controls"loop="loop" preload="auto" download="none" width="1400px" height="660px" frameborder="0" scrolling="no" marginwidth="0px" marginheight="0" src="../lunbotu/index.html" ></iframe>
 
-      <div style="color: rgb(255, 255, 255);margin-left: 30px;margin-bottom: 30px;font-size: 16px;">
-        <span id="busuanzi_container_site_uv">
-          本站总访问量 <span id="busuanzi_value_site_uv"> </span> 次
-        </span>
-      </div>
+
             <div class="row">
                 <div class="col-sm-3">
             <h4 class="text-gray"><img data-src="../assets/images/logos/ADV.gif" class="lozad img-square" height="120" width="200" onclick="window.open('https://www.baidu.com/', '_blank')"></h4>
@@ -444,9 +440,79 @@
     <!-- JavaScripts initializations and stuff -->
     <script src="../assets/js/xenon-custom.js"></script>
     <script src="../assets/js/lozad.js"></script>
+
+<script type="text/javascript">
+
+if (localStorage.pagecount){    localStorage.pagecount=Number(localStorage.pagecount) +1;}else{    localStorage.pagecount=1;}document.write("访问数: " + localStorage.pagecount + " time(s).");</script>
+
+<script type="text/javascript">
+var caution=false
+function setCookie(name,value,expires,path,domain,secure) 
+{
+ var curCookie=name+"="+escape(value) +
+ ((expires)?";expires="+expires.toGMTString() : "") +
+ ((path)?"; path=" + path : "") +
+ ((domain)? "; domain=" + domain : "") +
+ ((secure)?";secure" : "")
+ if(!caution||(name + "=" + escape(value)).length <= 4000)
+ {
+ document.cookie = curCookie
+ }
+ else if(confirm("Cookie exceeds 4KB and will be cut!"))
+ {
+ document.cookie = curCookie
+ }
+}
+function getCookie(name) 
+{
+ var prefix = name + "="
+ var cookieStartIndex = document.cookie.indexOf(prefix)
+ if (cookieStartIndex == -1)
+ {
+ return null
+ }    
+ var cookieEndIndex=document.cookie.indexOf(";",cookieStartIndex+prefix.length)
+ if(cookieEndIndex == -1)
+ {
+ cookieEndIndex = document.cookie.length
+ }
+ return unescape(document.cookie.substring(cookieStartIndex+prefix.length,cookieEndIndex))
+}
+function deleteCookie(name, path, domain) 
+{
+ if(getCookie(name)) 
+ {
+ document.cookie = name + "=" + 
+ ((path) ? "; path=" + path : "") +
+ ((domain) ? "; domain=" + domain : "") +
+ "; expires=Thu, 01-Jan-70 00:00:01 GMT"
+ }
+}
+function fixDate(date) 
+{
+ var base=new Date(0)
+ var skew=base.getTime()
+ if(skew>0)
+ {
+ date.setTime(date.getTime()-skew)
+ }    
+}
+var now=new Date()
+fixDate(now)
+now.setTime(now.getTime()+365 * 24 * 60 * 60 * 1000)
+var visits = getCookie("counter")
+if(!visits)
+{
+ visits=1;
+}  
+else
+{
+ visits=parseInt(visits)+1;
+}  
+setCookie("counter", visits, now)
+document.write("您是到访的第" + visits + "位用户！")
+</script>
+    
 </body>
-            本站总访问量<span id="clustrmaps"></span>次.
-    您是第<span id="clustrmaps"></span>个小伙伴
-    <script type="text/javascript"id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=QEEi&d=qrVjzE_-Qo-26aJcmuyADSnDF75UCYZ9LYpHX8uiP5E"></script>
-       
+
 </html>

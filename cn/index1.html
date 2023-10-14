@@ -1,0 +1,110 @@
+<!DOCTYPE html
+<html>
+
+<head>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
+  <title> 周晓君</title>
+
+
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <link rel="stylesheet" href="//busuanzi.ibruce.info/pintuer/1.0/pintuer.mini.css">
+
+  <!-- 不蒜子计数 -->
+  <script type="text/javascript" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</head>
+
+<body>
+
+
+   
+
+      <div style="color: rgb(268, 100, 100);margin-left: 30px;margin-bottom: 30px;font-size: 16px;">
+        <span id="busuanzi_container_site_uv">
+          本站总访问量 <span id="busuanzi_value_site_uv"> </span> 次
+        </span>
+      </div>
+
+    <div class="line text-big">
+        <div class="x2 x2-move">
+            <span id="busuanzi_container_page_pv">
+                <div class="padding border border-sub border-dotted fadein-left">
+                    本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+                </div>
+            </span>
+        </div>
+        <div class="x2 x1-move">
+                <span id="busuanzi_container_site_pv">
+                    <div class="padding border border-sub border-dotted fadein-bottom">
+                        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+                    </div>
+                </span>
+        </div>
+        <div class="x2 x1-move">
+            <span id="busuanzi_container_site_uv">
+                 <div class="padding border border-sub border-dotted fadein-right">
+                     本站总访客数<span id="busuanzi_value_site_uv"></span>人
+                 </div>
+            </span>
+        </div>
+    </div>
+
+</div>
+
+
+      <div style="height: 250px;width: 250px;margin-left: 40px;">
+        <script type="text/javascript" id="clstr_globe"
+          src="https://clustrmaps.com/globe.js?d=jEedlNVklOX2IZqAQB0Waa8-5oRjlCYuVpdX7PitdPg"></script>
+
+      </div>
+
+
+
+
+
+    <div class="copyright";margin-top: 50px;clear: both; text-align: center;">
+      <div style="height: 60px;line-height: 60px;">
+        <span style="color: rgb(268, 120, 120);"> © 2021 周晓君. 版权所有。</span>
+        <span id="sitetime" style="color: rgb(268, 120, 120);"></span>
+      </div>
+    </div>
+  </div>
+  </div>       
+
+
+
+  <!--显示建站时间的地方放置此代码 可以加上其他代HTML代码加粗颜色等-->
+  <script language=javascript>
+    function siteTime() {
+      window.setTimeout("siteTime()", 1000);
+      var seconds = 1000;
+      var minutes = seconds * 60;
+      var hours = minutes * 60;
+      var days = hours * 24;
+      var years = days * 365;
+      var today = new Date();
+      var todayYear = today.getFullYear();
+      var todayMonth = today.getMonth() + 1;
+      var todayDate = today.getDate();
+      var todayHour = today.getHours();
+      var todayMinute = today.getMinutes();
+      var todaySecond = today.getSeconds();
+      var t1 = Date.UTC(2023, 09, 29, 17, 46, 00);  //此处填写建站时间 依次为 年,月,日,时,分,秒注意格式 半角,
+      var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+      var diff = t2 - t1;
+      var diffYears = Math.floor(diff / years);
+      var diffDays = Math.floor((diff / days) - diffYears * 365);
+      var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+      var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+      var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+      document.getElementById("sitetime").innerHTML = "🕓Xiaojun Zhou's homepage 已开通 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒"; //此处为显示的内容
+    }
+    siteTime();
+  </script>
+
+      
+</body>
+
+</html>
